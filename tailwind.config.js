@@ -5,8 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#001C54',
+        secondary: '#FDFDFD',
+        'theme-red': '#FF0D0D',
+      },
+      fontFamily: {
+        'montserrat': ['Montserrat', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
-

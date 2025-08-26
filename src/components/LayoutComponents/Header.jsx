@@ -1,30 +1,15 @@
-import { LuBell } from "react-icons/lu";
-import { Link, useNavigate } from "react-router-dom";
-import { FaBars, FaFileAlt, FaUsers } from "react-icons/fa";
-import { useRef, useState } from "react";
 import { Drawer } from "antd";
-import settings from "../../assets/routerImg/settings.png";
-import logo from "../../assets/header/logo.png";
-import { FaChevronRight } from "react-icons/fa";
-import { IoIosLogIn } from "react-icons/io";
-import { MdDashboard, MdManageAccounts } from "react-icons/md";
+import { useState } from "react";
+import { FaBars } from "react-icons/fa";
+import { HiOutlineBell, HiOutlineChatAlt, HiOutlineUser } from "react-icons/hi";
+import { Link } from "react-router-dom";
 import { AdminItems } from "./SideBar";
 
-
-
 const Header = () => {
+  const [open, setOpen] = useState(false);
   const [selectedKey, setSelectedKey] = useState("dashboard");
   const [expandedKeys, setExpandedKeys] = useState([]);
-  const navigate = useNavigate();
-  const contentRef = useRef({});
-  const [open, setOpen] = useState(false);
-  const [placement] = useState("left");
 
-  const onParentClick = (key) => {
-    setExpandedKeys((prev) =>
-      prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key]
-    );
-  };
   const showDrawer = () => {
     setOpen(true);
   };
@@ -33,136 +18,128 @@ const Header = () => {
     setOpen(false);
   };
 
-  const handleLogout = () => {
-    navigate("/login");
+  const onParentClick = (key) => {
+    setExpandedKeys((prev) =>
+      prev.includes(key) ? prev.filter((item) => item !== key) : [...prev, key]
+    );
   };
 
   return (
-    <div className="bg-[#FF914C] text-white px-5 py-4">
-      <div className="flex justify-between items-center">
-        <div className="lg:hidden">
-          <button onClick={showDrawer} className="p-2">
-            <FaBars size={24} />
-          </button>
-          <Drawer
-            title={
-              <div className="flex justify-center">
-                <img src={logo} alt="Logo" className="md:w-[160px] w-[80px]" />
-              </div>
-            }
-            placement={placement}
-            width={300}
-            onClose={onClose}
-            open={open}
-            className="custom-drawer"
+    <div className="flex w-full h-[84px] justify-center items-center px-4 py-4 bg-secondary rounded-lg shadow-md">
+      <div className="flex w-full justify-between items-center">
+        {/* Left Section - Menu and Welcome Message */}
+        <div className="flex items-center gap-6">
+          {/*  Menu icon  */}
+          <button
+            // onClick={showDrawer}
+            className="flex items-center justify-center"
           >
-            <div className="menu-items">
-              {AdminItems.map((item) => (
-                <div key={item.key}>
-                  <Link
-                    to={item.link}
-                    className={`menu-item my-4 mx-5 py-3 px-3 flex items-center cursor-pointer ${selectedKey === item.key
-                      ? "bg-[#0B704E] text-white rounded-md"
-                      : "bg-white rounded-md"
-                      }`}
-                    onClick={(e) => {
-                      if (item.children) {
-                        e.preventDefault();
-                        onParentClick(item.key);
-                      } else {
-                        setSelectedKey(item.key);
-                        onClose();
-                      }
-                    }}
-                  >
-                    {item?.icon()}
-                    <span className="ml-3 text-base font-medium">
-                      {item.label}
-                    </span>
-                    {item.children && (
-                      <FaChevronRight
-                        className={`ml-auto transform transition-all duration-300 ${expandedKeys.includes(item.key) ? "rotate-90" : ""
-                          }`}
-                      />
-                    )}
-                  </Link>
+            <FaBars className="w-8 h-8 text-primary" strokeWidth={4} />
+          </button>
 
-                  {item.children && (
-                    <div
-                      className={`children-menu bg-white -my-2 mx-5 text-black transition-all duration-300 ${expandedKeys.includes(item.key) ? "expanded" : ""
-                        }`}
-                      style={{
-                        maxHeight: expandedKeys.includes(item.key)
-                          ? `${contentRef.current[item.key]?.scrollHeight}px`
-                          : "0",
-                      }}
-                      ref={(el) => (contentRef.current[item.key] = el)}
-                    >
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.key}
-                          to={child.link}
-                          className={`menu-item p-4 flex items-center cursor-pointer ${selectedKey === child.key
-                            ? "bg-[#0B704E] text-white"
-                            : ""
-                            }`}
-                          onClick={() => {
-                            setSelectedKey(child.key);
-                            setExpandedKeys([]);
-                            onClose();
-                          }}
-                        >
-                          <span className="ml-8">{child.label}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="custom-sidebar-footer absolute bottom-0 w-full p-4">
-              <button
-                onClick={handleLogout}
-                className="w-full flex bg-[#0B704E] text-white text-start rounded-md p-3 mt-10"
-              >
-                <span className="text-2xl">
-                  <IoIosLogIn />
-                </span>
-                <span className="ml-3">Logout</span>
-              </button>
-            </div>
-          </Drawer>
+          {/* Welcome Message */}
+          <div className="flex flex-col gap-0.5">
+            <h1 className="text-primary font-montserrat text-xl font-semibold leading-tight">
+              Welcome,James
+            </h1>
+            <p className="text-primary font-montserrat text-sm font-normal leading-relaxed">
+              Have a nice day!
+            </p>
+          </div>
         </div>
 
-        <div className="ml-auto flex items-center justify-center gap-5">
-          <div className="relative">
-            <Link to={"/dashboard/Settings/notification"}>
-              <LuBell className="text-2xl text-[#0B704E] w-[40px] h-[40px]" />
-            </Link>
-            <span className="absolute -top-2 -right-2 bg-[#0B704E] text-xs rounded-full w-6 h-6 flex items-center justify-center">
-              10
-            </span>
+        {/* Right Section - Chat, Notification, Profile */}
+        <div className="flex items-center gap-3">
+          {/* Chat er icon  */}
+          <div className="flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary">
+            <HiOutlineChatAlt className="w-9 h-9 text-primary" strokeWidth={2} />
           </div>
-          <div className="pl-5 border-gray-600">
-            <Link to={"/dashboard/Settings/profile"}>
-              <div className="flex items-center gap-3">
-                <img
-                  src="https://avatar.iran.liara.run/public/44"
-                  className="w-[40px] h-[40px] object-cover rounded-full border-2 border-[#0B704E]"
-                  alt="User Avatar"
-                />
-                <div className="hidden md:flex flex-col items-start">
-                  <h3 className="text-gray-800 text-sm">Shah Aman</h3>
-                  <p className="text-xs px-2 py-1 bg-[#ebfcf4] text-[#15803D] rounded">
-                    Admin
-                  </p>
-                </div>
+
+          {/* Notification Icon  */}
+          <Link to="/dashboard/Settings/notification">
+            <div className="relative flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary">
+              <HiOutlineBell className="w-10 h-10 text-primary" strokeWidth={2} />
+              {/* Red notification badge */}
+              <div className="absolute top-2 right-2 w-4 h-4 bg-theme-red rounded-full flex items-center justify-center">
+                <span className="text-secondary font-montserrat text-xs font-normal">1</span>
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
+
+          {/* Profile Icon */}
+          <Link to="/dashboard/Settings/profile">
+            <div className="flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary">
+              <HiOutlineUser className="w-8 h-8 text-primary" strokeWidth={2} />
+            </div>
+          </Link>
         </div>
       </div>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        title={
+          <div className="flex justify-center">
+            <span className="text-primary font-montserrat text-lg font-semibold">Menu</span>
+          </div>
+        }
+        placement="left"
+        width={300}
+        onClose={onClose}
+        open={open}
+        className="custom-drawer"
+      >
+        <div className="menu-items">
+          {AdminItems.map((item) => (
+            <div key={item.key}>
+              <Link
+                to={item.link}
+                className={`menu-item my-4 mx-5 py-3 px-3 flex items-center cursor-pointer rounded-md ${
+                  selectedKey === item.key
+                    ? "bg-primary text-white"
+                    : "bg-white border border-gray-200"
+                }`}
+                onClick={(e) => {
+                  if (item.children) {
+                    e.preventDefault();
+                    onParentClick(item.key);
+                  } else {
+                    setSelectedKey(item.key);
+                    onClose();
+                  }
+                }}
+              >
+                {item?.icon()}
+                <span className="ml-3 text-base font-medium">
+                  {item.label}
+                </span>
+              </Link>
+
+              {item.children && expandedKeys.includes(item.key) && (
+                <div className="children-menu bg-white mx-5 text-black">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.key}
+                      to={child.link}
+                      className={`menu-item p-4 flex items-center cursor-pointer ${
+                        selectedKey === child.key
+                          ? "bg-primary text-white"
+                          : ""
+                      }`}
+                      onClick={() => {
+                        setSelectedKey(child.key);
+                        setExpandedKeys([]);
+                        onClose();
+                      }}
+                    >
+                      <span className="ml-8">{child.label}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </Drawer>
     </div>
   );
 };
