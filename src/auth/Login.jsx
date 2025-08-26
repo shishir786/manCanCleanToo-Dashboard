@@ -97,7 +97,7 @@ function Login() {
                       width="21"
                       height="21"
                       rx="4"
-                      className="fill-[#FF914C]"
+                      className=""
                       stroke="#FF914C"
                     ></rect>
                     <path

@@ -8,7 +8,7 @@
 }
 
 select option {
-  background-color: #FF914C;
+
   color: #fff;
   padding: 10px;
 }
@@ -58,16 +58,7 @@ select option {
   border-bottom: 2px solid red !important;
 } */
 
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   height: 0.5rem;
   width: 0.5rem;
-}
-*::-webkit-scrollbar-thumb {
-  background-color: #FF914C;
-  /* border-radius: 10px; */
-}
-
-*::-webkit-scrollbar-track {
-  background-color: #ff3916;
-  /* border-radius: 50px; */
-}
+} */
