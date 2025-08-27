@@ -262,7 +262,7 @@ const Users = () => {
 
   return (
     <>
-      <div className="my-5 md:my-10 flex flex-col md:flex-row gap-5 justify-between items-center">
+      <div className="my-5 p-54 md:my-10 flex flex-col md:flex-row gap-5 justify-between items-center">
         <PageHeading title="Users" />
         <div className="relative w-full sm:w-[300px] mt-5 md:mt-0 lg:mt-0">
           <input

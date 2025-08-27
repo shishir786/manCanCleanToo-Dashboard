@@ -42,7 +42,7 @@ export default function UpdateSubscription() {
 
   return (
     <div className="min-h-screen">
-      <PageHeading title="Subscription Management" />
+      <PageHeading title="FeedBack" />
       {/* Subscription Update Form */}
       <div className="flex justify-center items-center mt-5">
         <div className="p-5 bg-white shadow-md rounded-lg max-w-[900px] w-full space-y-5">
