@@ -32,7 +32,7 @@ function DashboardPage() {
   };
 
   return (
-    <div className="flex flex-col pt-10 pr-5">
+    <div className="flex flex-col mt-10 px-5">
       {/* upper 2 blocks */}
       <div
         className="w-full flex bg-white rounded-lg shadow-sm items-center justify-center border border-[#E2E8F0]"

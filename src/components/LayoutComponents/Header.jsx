@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
   return (
-    <div className="flex w-full-20 h-[84px] justify-center items-center px-4 py-4 bg-secondary rounded-lg shadow-md mt-5 mr-5">
+    <div className="flex w-full-20 h-[84px] justify-center items-center px-4 py-4 bg-secondary rounded-lg shadow-md mt-5 mx-5">
       <div className="flex w-full justify-between items-center ml-5">
         {/* Left Section - Menu and Welcome Message */}
         <div className="flex items-center gap-6">
