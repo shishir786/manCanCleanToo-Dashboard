@@ -30,30 +30,19 @@ export const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "/dashboard/user-management",
+        path: "/dashboard/users",
         element: <Users />,
       },
       {
-        path: "/dashboard/seller-management",
+        path: "/dashboard/createAdmin",
         element: <SellerManagement />,
       },
 
       {
-        path: "/dashboard/subscription",
+        path: "/dashboard/feedback",
         element: <Subscription />,
       },
-      {
-        path: "/dashboard/update-subscription",
-        element: <UpdateSubscription />,
-      },
-      {
-        path: "/premium-subscribers",
-        element: <PremiumSubscribers />,
-      },
-      {
-        path: "/ads-promotion",
-        element: <AdPromotion />,
-      },
+     
       {
         path: "/dashboard/Settings/profile",
         element: <Profile />,
@@ -62,26 +51,8 @@ export const router = createBrowserRouter([
         path: "/dashboard/Settings/notification",
         element: <Notification />,
       },
-      {
-        path: "/dashboard/Settings/Terms&Condition",
-        element: <TermsCondition />,
-      },
-      {
-        path: "/dashboard/Settings/PrivacyPolicy",
-        element: <PrivacyPolicy />,
-      },
-      {
-        path: "/faq",
-        element: <Faq />,
-      },
-      {
-        path: "/chat",
-        element: <Chat />,
-      },
-      {
-        path: "/support",
-        element: <Support />,
-      },
+      
+      
       {
         path: "/category-management",
         element: <CategoryManagement />,
