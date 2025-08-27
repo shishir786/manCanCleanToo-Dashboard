@@ -12,6 +12,7 @@ import SellerManagement from "../page/sellerManagement/SellerManagement";
 import Profile from "../page/Settings/Profile";
 import Subscription from "../page/subscription/Subscription";
 import Users from "../page/UserManagement/Users";
+import BlockedUser from "../page/BlockedUser/BlockedUser";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/users",
         element: <Users />,
+      },
+      {
+        path: "/dashboard/blocked-users",
+        element: <BlockedUser />,
       },
       {
         path: "/dashboard/createAdmin",

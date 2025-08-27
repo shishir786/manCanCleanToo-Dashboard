@@ -4,15 +4,14 @@ import { IoSearch } from "react-icons/io5";
 import { HiOutlineBarsArrowDown } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
 
-import { MdBlockFlipped, } from "react-icons/md";
+import { MdBlockFlipped, MdRestore } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import PageHeading from "../../shared/PageHeading";
-import { useNavigate } from "react-router-dom";  
 
 const Users = () => {
-  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null); // store clicked user
+
 
   const handleOk = () => {
     setIsModalOpen(false);
@@ -32,8 +31,11 @@ const Users = () => {
     setSelectedUser(user);
     setIsModalOpen(true);
   };
-  const openBlockedUsersModal = () => {
-    navigate("/dashboard/blocked-users");
+ 
+
+  const restoreUser = (user) => {
+    setUsers((prev) => [...prev, user]);
+    setBlockedUsers((prev) => prev.filter((u) => u.key !== user.key));
   };
 
   const userData = [
@@ -189,7 +191,7 @@ const Users = () => {
             onClick={showModal}
             className="  text-[#082513] rounded-lg p-2  hover:bg-teal-400 transition duration-200"
           >
-            <MdBlockFlipped className="w-6 h-6 text-red-400 hover:text-black" />
+            <MdRestore className="w-6 h-6 text-red-400 hover:text-black" />
           </button>
           <button
             onClick={() => showUserDetails(record)} // pass clicked user
@@ -201,12 +203,50 @@ const Users = () => {
       ),
     },
   ];
-
+  const blockedColumns = [
+    { title: "No", dataIndex: "no", key: "no" },
+    {
+      title: "User Name",
+      key: "userName",
+      render: (_, record) => (
+        <div className="flex items-center gap-3">
+          <img
+            src={`https://avatar.iran.liara.run/public/${record.no}`}
+            className="w-10 h-10 object-cover rounded-full"
+            alt="User Avatar"
+          />
+          <span>{record.userName}</span>
+        </div>
+      ),
+    },
+    { title: "Phone Number", dataIndex: "phoneNumber", key: "phoneNumber" },
+    { title: "Email", dataIndex: "email", key: "email" },
+    {
+      title: "Action",
+      key: "action",
+      render: (_, record) => (
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => restoreUser(record)}
+            className="border border-green-600 text-green-600 rounded-lg p-2 bg-green-100 hover:bg-green-200 transition duration-200"
+          >
+            <MdRestore className="w-6 h-6" />
+          </button>
+          <button
+            onClick={() => showUserDetails(record)}
+            className="border border-[#14803c] text-[#14803c] rounded-lg p-2 bg-[#d3e8e6] hover:bg-[#b4d9d4] transition duration-200"
+          >
+            <FaEye className="w-6 h-6" />
+          </button>
+        </div>
+      ),
+    },
+  ];
   return (
     <>
       <div>
         <div className="rounded-t-lg mt-5 rounded-b-none bg-[#013666] text-white py-3  flex flex-row justify-between items-center mx-5 px-5">
-          <PageHeading title="User List" />
+          <PageHeading title="Blocked User List" />
           <div className="flex items-center gap-[100px]">
             <div className="relative w-full sm:w-[300px]">
               <div className="flex items-center ">
@@ -220,12 +260,6 @@ const Users = () => {
                 </span>
               </div>
             </div>
-            <button
-              onClick={openBlockedUsersModal}
-              className="bg-white text-[#013666] py-2 px-6 rounded-md hover:bg-gray-100 focus:outline-none"
-            >
-              Blocked Users
-            </button>
           </div>
         </div>
         <div className="mx-5 ">
@@ -339,14 +373,14 @@ const Users = () => {
               ) : (
                 <div className="p-5 text-center">
                   <h1 className="text-4xl text-[#0D0D0D]">
-                    Are you sure you want to block?
+                    Are you sure you want to Restore?
                   </h1>
                   <div className="flex justify-between items-center gap-5 text-center py-5">
                     <button
                       onClick={handleOk}
                       className="text-[#001C54] border-2 border-[#001C54] bg-white font-semibold w-full py-2 rounded transition duration-200"
                     >
-                      No, Don’t Block
+                        Cancel
                     </button>
                     <button
                       onClick={handleOk}
@@ -354,7 +388,6 @@ const Users = () => {
                     >
                       Yes, Confirm
                     </button>
-
                   </div>
                 </div>
               )}
