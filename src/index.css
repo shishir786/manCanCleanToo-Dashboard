@@ -8,12 +8,9 @@
 }
 
 select option {
-
-  color: #fff;
+  color: #a19c00 !important;
   padding: 10px;
 }
-
-
 
 /* Hover effect for buttons */
 

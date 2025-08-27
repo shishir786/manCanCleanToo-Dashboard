@@ -25,8 +25,8 @@ const Header = () => {
   };
 
   return (
-    <div className="flex w-full h-[84px] justify-center items-center px-4 py-4 bg-secondary rounded-lg shadow-md">
-      <div className="flex w-full justify-between items-center">
+    <div className="flex w-full-5 h-[84px] justify-center items-center px-4 py-4 bg-secondary rounded-lg shadow-md mx-5 mt-5 ">
+      <div className="flex w-full justify-between items-center ml-5">
         {/* Left Section - Menu and Welcome Message */}
         <div className="flex items-center gap-6">
           {/*  Menu icon  */}
@@ -38,30 +38,38 @@ const Header = () => {
           </button>
 
           {/* Welcome Message */}
-          <div className="flex flex-col gap-0.5">
-            <h1 className="text-primary font-montserrat text-xl font-semibold leading-tight">
-              Welcome,James
+          <div className="flex flex-col">
+            <h1 className="text-primary font-montserrat text-2xl font-bold leading-tight mt-5">
+              Welcome, James
             </h1>
-            <p className="text-primary font-montserrat text-sm font-normal leading-relaxed">
+            <p className="text-primary font-montserrat text-sm font-semibold leading-relaxed mb-5">
               Have a nice day!
             </p>
           </div>
         </div>
 
         {/* Right Section - Chat, Notification, Profile */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 pr-5 ">
           {/* Chat er icon  */}
           <div className="flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary">
-            <HiOutlineChatAlt className="w-9 h-9 text-primary" strokeWidth={2} />
+            <HiOutlineChatAlt
+              className="w-9 h-9 text-primary"
+              strokeWidth={2}
+            />
           </div>
 
           {/* Notification Icon  */}
           <Link to="/dashboard/Settings/notification">
             <div className="relative flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary">
-              <HiOutlineBell className="w-10 h-10 text-primary" strokeWidth={2} />
+              <HiOutlineBell
+                className="w-10 h-10 text-primary"
+                strokeWidth={2}
+              />
               {/* Red notification badge */}
               <div className="absolute top-2 right-2 w-4 h-4 bg-theme-red rounded-full flex items-center justify-center">
-                <span className="text-secondary font-montserrat text-xs font-normal">1</span>
+                <span className="text-secondary font-montserrat text-xs font-normal">
+                  1
+                </span>
               </div>
             </div>
           </Link>
@@ -79,7 +87,9 @@ const Header = () => {
       <Drawer
         title={
           <div className="flex justify-center">
-            <span className="text-primary font-montserrat text-lg font-semibold">Menu</span>
+            <span className="text-primary font-montserrat text-lg font-semibold">
+              Menu
+            </span>
           </div>
         }
         placement="left"
@@ -109,9 +119,7 @@ const Header = () => {
                 }}
               >
                 {item?.icon()}
-                <span className="ml-3 text-base font-medium">
-                  {item.label}
-                </span>
+                <span className="ml-3 text-base font-medium">{item.label}</span>
               </Link>
 
               {item.children && expandedKeys.includes(item.key) && (
@@ -121,9 +129,7 @@ const Header = () => {
                       key={child.key}
                       to={child.link}
                       className={`menu-item p-4 flex items-center cursor-pointer ${
-                        selectedKey === child.key
-                          ? "bg-primary text-white"
-                          : ""
+                        selectedKey === child.key ? "bg-primary text-white" : ""
                       }`}
                       onClick={() => {
                         setSelectedKey(child.key);
