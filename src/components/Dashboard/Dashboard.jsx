@@ -68,7 +68,7 @@ function DashboardPage() {
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md flex justify-between items-center bg-white transition"
               >
-                <span className="text-[#0B704E]">{selectedYear}</span>
+                <span className="text-[#095038]">{selectedYear}</span>
                 <FaChevronDown className="text-[#0B704E] w-5 h-5 ml-5" />
               </button>
 
@@ -93,6 +93,7 @@ function DashboardPage() {
           <UserRatio />
         </div>
       </div>
+
 
       <div className="mt-5">
         <h1 className="text-2xl font-bold mb-5">Recent Seller Requests</h1>

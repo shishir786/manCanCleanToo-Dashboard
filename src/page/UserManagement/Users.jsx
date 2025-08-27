@@ -1,8 +1,8 @@
+import { ConfigProvider, Modal, Table } from "antd";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { MdBlockFlipped } from "react-icons/md";
 import PageHeading from "../../shared/PageHeading";
-import { ConfigProvider, Modal, Table } from "antd";
 
 const Users = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -262,19 +262,33 @@ const Users = () => {
 
   return (
     <>
-      <div className="my-5 p-54 md:my-10 flex flex-col md:flex-row gap-5 justify-between items-center">
-        <PageHeading title="Users" />
-        <div className="relative w-full sm:w-[300px] mt-5 md:mt-0 lg:mt-0">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="border-2 border-orange-500 py-3 pl-12 pr-[65px] outline-none w-full rounded-md"
-          />
-          <span className=" text-gray-600 absolute top-0 left-0 h-full px-5 flex items-center justify-center rounded-r-md cursor-pointer">
-            <IoSearch className="text-[1.3rem]" />
-          </span>
+      <div className="  rounded-t-lg mt-5 rounded-b-none  bg-[#013666] text-white py-3 px-4 flex justify-between items-center">
+        {/* Page Heading */}
+        <PageHeading title="User List" />
+
+        {/* Search and Blocked Users Button */}
+        <div className="flex items-center gap-[100px]">
+          {/* Search Bar */}
+          <div className="relative w-full  sm:w-[300px]">
+            <div className="flex items-center">
+              <input
+                type="text"
+                placeholder="Search User"
+                className="border-2  py-2 pl-10 pr-4 text-black  outline-none w-full rounded-md  "
+              />
+              <span className="text-gray-400 absolute top-0 left-0 h-full px-3 flex items-center justify-center">
+                <IoSearch className="text-[1.3rem]" />
+              </span>
+            </div>
+          </div>
+
+          {/* Blocked Users Button */}
+          <button className="bg-white text-[#013666] py-2 px-6 rounded-md hover:bg-gray-100 focus:outline-none">
+            Blocked Users
+          </button>
         </div>
       </div>
+
       <ConfigProvider
         theme={{
           components: {
@@ -295,10 +309,10 @@ const Users = () => {
               colorPrimaryHover: "rgb(82,196,26)",
             },
             Table: {
-              headerBg: "#14803c",
-              headerColor: "rgb(255,255,255)",
+              headerBg: "#ffff",
+              headerColor: "rgb(0,0,0)",
               cellFontSize: 16,
-              headerSplitColor: "#14803c",
+              
             },
           },
         }}

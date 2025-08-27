@@ -17,11 +17,11 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
           </button>
 
           {/* Welcome Message (auto hide on small screen) */}
-          <div className="hidden md:flex flex-col gap-0.5 min-w-0">
-            <h1 className="text-primary font-montserrat text-lg md:text-xl font-semibold leading-tight truncate">
-              Welcome, James
+          <div className="hidden md:flex flex-col min-w-0 justify-center">
+            <h1 className="text-primary font-montserrat text-lg md:text-2xl font-bold leading-tight truncate mt-5">
+              Welcome, DS
             </h1>
-            <p className="text-primary font-montserrat text-xs md:text-sm font-normal leading-relaxed truncate">
+            <p className="text-primary font-montserrat text-sm font-semibold leading-relaxed truncate mt-0.5">
               Have a nice day!
             </p>
           </div>
