@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
+import AdminSignIn from "../auth/AdminSignIn";
 import ForgetPassword from "../auth/ForgetPassword";
+import Login from "../auth/Login";
 import ResetPassword from "../auth/ResetPassword";
-import SignIn from "../auth/SignIn";
 import VerificationCode from "../auth/VerificationCode";
 import Dashboard from "../components/Dashboard/Dashboard";
 import DashboardLayout from "../layout/DashboardLayout";
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/createAdmin",
-        element: <SellerManagement />,
+        element: <AdminSignIn />,
       },
 
       {
@@ -58,11 +59,12 @@ export const router = createBrowserRouter([
         path: "/dashboard/Settings/chat",
         element: <Chat />,
       },
+
     ],
   },
   {
     path: "/login",
-    element: <SignIn />,
+    element: <Login />,
   },
   {
     path: "/forget-password",
