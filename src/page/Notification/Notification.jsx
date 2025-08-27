@@ -6,7 +6,7 @@ const Notification = () => {
     {
       id: "1",
       type: "user_joined",
-      title: "New User Joined",
+      title: "New User Cot",
       description: "Emily Johnson has joined the platform.",
       date: "2025-04-24",
       time: "09:20 AM",
@@ -103,12 +103,12 @@ const Notification = () => {
   };
 
   return (
-    <div className="py-4 max-h-[70vh] overflow-y-auto">
+    <div className="py-4 max-h-[86vh] overflow-y-auto mx-5">
       {notifications.length > 0 ? (
         notifications.map((notification) => (
           <div
             key={notification.id}
-            className="relative p-3 bg-white border rounded-lg mb-3"
+            className="relative p-3 bg-white border rounded-lg mb-0.5 shadow-sm"
           >
             <button
               onClick={() => handleDismiss(notification.id)}
@@ -117,7 +117,7 @@ const Notification = () => {
             >
               <RxCross2 className="w-4 h-4 text-gray-400" />
             </button>
-            <div className="flex gap-3">
+            <div className="flex gap-10">
               <img
                 src={notification.avatar}
                 alt="Avatar"
