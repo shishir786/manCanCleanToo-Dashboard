@@ -2,12 +2,9 @@ import { Modal } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import medal from "../../assets/medal.png";
-import profit from "../../assets/profit.png";
-import seller from "../../assets/seller.png";
-import user from "../../assets/user.png";
 import RecentSellerRequests from "./RecentSellerRequests";
 import SellerGrowth from "./SellerGrowth";
+import UserRatio from "./UserRatio";
 
 function DashboardPage() {
   const currentYear = dayjs().year();
@@ -37,45 +34,35 @@ function DashboardPage() {
 
   return (
     <div className="flex flex-col">
-      <div className="grid grid-cols-1 md:grid-cols-2 mmd:grid-cols-3 lg:grid-cols-4 gap-2">
-        <div className="flex flex-col items-center justify-center p-5 bg-white rounded-lg shadow-sm max-w-md">
-          <h2 className="text-gray-700 text-lg font-medium mb-2">
-            Total Users
-          </h2>
-
-          <div className="rounded-full">
-            <div className="flex items-center justify-center mb-2">
-              <img src={user} alt="User Stats Icon" className="w-16 h-12" />
-            </div>
-          </div>
-
-          <p className="text-gray-900 text-4xl font-bold">
-            {new Intl.NumberFormat().format(6500)}
+      {/* upper 2 blocks */}
+      <div
+        className="w-full flex bg-white rounded-lg shadow-sm items-center justify-center border border-[#E2E8F0]"
+        style={{ minHeight: "110px" }}
+      >
+        <div className="flex-1 flex flex-col items-center justify-center">
+          <p className="text-[#0D2357] text-3xl md:text-4xl font-bold mb-2">
+            7.8k
           </p>
+          <span className="text-[#0D2357] text-base md:text-lg font-medium">
+            Total Distributor
+          </span>
         </div>
-        <div className="flex flex-col items-center justify-center p-5 bg-white rounded-lg shadow-sm max-w-md">
-          <h2 className="text-gray-700 text-lg font-medium mb-2">
-            Total Subscriptions
-          </h2>
-
-          <div className="rounded-full">
-            <div className="flex items-center justify-center mb-2">
-              <img src={medal} alt="User Stats Icon" className="w-16 h-12" />
-            </div>
-          </div>
-
-          <p className="text-gray-900 text-4xl font-bold">
-            {new Intl.NumberFormat().format(2650)}
+        <div className="w-px h-16 bg-[#F4B057] mx-8" />
+        <div className="flex-1 flex flex-col items-center justify-center">
+          <p className="text-[#0D2357] text-3xl md:text-4xl font-bold mb-2">
+            249
           </p>
+          <span className="text-[#0D2357] text-base md:text-lg font-medium">
+            Total Employer
+          </span>
         </div>
-       
       </div>
-      {/* .............. */}
-      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-5 mt-5">
-        <div className="w-full p-5 bg-[#F2F2F2] rounded-lg shadow-md">
+      {/* User Ratio Section */}
+      <div className="w-full gap-5 mt-5 ">
+        <div className="w-full p-5 bg-[#FFFFFF] rounded-lg shadow-md">
           <div className="flex flex-col md:flex-row md:justify-between lg:justify-between items-center gap-5 my-5">
             <div>
-              <h1 className="text-xl font-semibold">Seller Growth</h1>
+              <h1 className="text-xl font-semibold">User Ratio</h1>
             </div>
             <div className="relative w-full md:w-32">
               <button
@@ -104,9 +91,10 @@ function DashboardPage() {
               )}
             </div>
           </div>
-          <SellerGrowth />
+          <UserRatio />
         </div>
       </div>
+
       <div className="mt-5">
         <h1 className="text-2xl font-bold mb-5">Recent Seller Requests</h1>
         <RecentSellerRequests showModal={showModal} />
