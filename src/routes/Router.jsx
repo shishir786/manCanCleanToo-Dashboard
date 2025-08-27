@@ -1,24 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
-import Dashboard from "../components/Dashboard/Dashboard";
-import Profile from "../page/Settings/Profile";
-import TermsCondition from "../page/Settings/TermsCondition";
-import PrivacyPolicy from "../page/Settings/PrivacyPolicy";
-import Notification from "../page/Notification/Notification";
+import ForgetPassword from "../auth/ForgetPassword";
+import ResetPassword from "../auth/ResetPassword";
+import SignIn from "../auth/SignIn";
 import VerificationCode from "../auth/VerificationCode";
+import Dashboard from "../components/Dashboard/Dashboard";
 import DashboardLayout from "../layout/DashboardLayout";
-import SellerManagement from "../page/sellerManagement/SellerManagement";
-import Subscription from "../page/subscription/Subscription";
-import UpdateSubscription from "../page/subscription/UpdateSubscription";
-import PremiumSubscribers from "../page/PremiumSubscribers/PremiumSubscribers";
-import AdPromotion from "../page/AdPromotion/AdPromotion";
-import Faq from "../page/Settings/Faq";
-import Support from "../page/Support/Support";
 import CategoryManagement from "../page/CategoryManagement/CategoryManagement";
 import Chat from "../page/Chat/Chat";
-import ResetPassword from "../auth/ResetPassword";
-import ForgetPassword from "../auth/ForgetPassword";
+import Notification from "../page/Notification/Notification";
+import SellerManagement from "../page/sellerManagement/SellerManagement";
+import Profile from "../page/Settings/Profile";
+import Subscription from "../page/subscription/Subscription";
 import Users from "../page/UserManagement/Users";
-import SignIn from "../auth/SignIn";
 
 export const router = createBrowserRouter([
   {
@@ -42,7 +35,7 @@ export const router = createBrowserRouter([
         path: "/dashboard/feedback",
         element: <Subscription />,
       },
-     
+
       {
         path: "/dashboard/Settings/profile",
         element: <Profile />,
@@ -51,11 +44,14 @@ export const router = createBrowserRouter([
         path: "/dashboard/Settings/notification",
         element: <Notification />,
       },
-      
-      
+
       {
         path: "/category-management",
         element: <CategoryManagement />,
+      },
+      {
+        path: "/dashboard/Settings/chat",
+        element: <Chat />,
       },
     ],
   },
@@ -74,5 +70,5 @@ export const router = createBrowserRouter([
   {
     path: "/reset-password",
     element: <ResetPassword />,
-  }
+  },
 ]);

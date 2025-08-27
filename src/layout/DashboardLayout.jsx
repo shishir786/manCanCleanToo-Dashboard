@@ -7,7 +7,7 @@ const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="lg:flex min-h-screen overflow-hidden">
+    <div className="lg:flex min-h-screen overflow-hidden bg-[#FFFEDE]">
       {/* Sidebar */}
       {sidebarOpen && (
         <div className="lg:w-80 bg-[#FEFEFE] overflow-auto lg:fixed lg:top-0 lg:left-0 lg:bottom-0 hidden lg:block no-scrollbar">
@@ -22,7 +22,7 @@ const DashboardLayout = () => {
         }`}
       >
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-        <div className="p-5 bg-[#f7f7f7] min-h-screen w-full">
+        <div className="p-5 bg-[#FFFEDE] min-h-screen w-full">
           <Outlet />
         </div>
       </div>
@@ -31,3 +31,5 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
+
+
