@@ -2,7 +2,7 @@ import { Modal } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import RecentSellerRequests from "./RecentSellerRequests";
+import RecentUsers from "./RecentUsers";
 import UserRatio from "./UserRatio";
 
 function DashboardPage() {
@@ -94,10 +94,9 @@ function DashboardPage() {
         </div>
       </div>
 
-
       <div className="mt-5">
-        <h1 className="text-2xl font-bold mb-5">Recent Seller Requests</h1>
-        <RecentSellerRequests showModal={showModal} />
+        <h1 className="text-2xl font-bold mb-5">Recent Users</h1>
+        <RecentUsers showModal={showModal} />
       </div>
       <Modal open={isModalOpen} centered onCancel={handleCancel} footer={null}>
         <div className="p-5">
