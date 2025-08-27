@@ -30,7 +30,7 @@ export default function Subscription() {
   return (
     <div className="min-h-screen">
       <div className="flex items-center justify-between mb-5">
-        <PageHeading title="Subscription Management" />
+        <PageHeading title="FeedBack" />
         <div>
           <button
             // onClick={showModal2}

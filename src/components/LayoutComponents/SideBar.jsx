@@ -88,7 +88,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className="min-h-[100vh]">
+    <div className="min-h-[100vh] p-6 rounded-md">
       <div className="custom-sidebar-logo flex justify-center">
         <img src={logo} alt="Logo" className="w-[139px] mt-[64px] h-[80px]" />
       </div>
