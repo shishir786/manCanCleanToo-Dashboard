@@ -32,7 +32,7 @@ const Header = () => {
           {/*  Menu icon  */}
           <button
             // onClick={showDrawer}
-            className="flex items-center justify-center"
+            className="flex items-center  justify-center"
           >
             <FaBars className="w-8 h-8 text-primary" strokeWidth={4} />
           </button>
