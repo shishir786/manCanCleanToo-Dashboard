@@ -2,231 +2,157 @@ import { ConfigProvider, Modal, Table } from "antd";
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { MdBlockFlipped } from "react-icons/md";
+import { FaEye } from "react-icons/fa";
 import PageHeading from "../../shared/PageHeading";
 
 const Users = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null); // store clicked user
+
   const handleOk = () => {
     setIsModalOpen(false);
+    setSelectedUser(null);
   };
+
   const handleCancel = () => {
     setIsModalOpen(false);
+    setSelectedUser(null);
   };
+
   const showModal = () => {
     setIsModalOpen(true);
   };
-  const dataSource = [
-    {
-      key: "1",
-      no: "1",
-      userName: "Shah Aman",
-      email: "shahaman@example.com",
-      phoneNumber: "123-456-7890",
-    },
-    {
-      key: "2",
-      no: "2",
-      userName: "Jane Doe",
-      email: "janedoe@example.com",
-      phoneNumber: "234-567-8901",
-    },
-    {
-      key: "3",
-      no: "3",
-      userName: "John Smith",
-      email: "johnsmith@example.com",
-      phoneNumber: "345-678-9012",
-    },
-    {
-      key: "4",
-      no: "4",
-      userName: "Alice Johnson",
-      email: "alicej@example.com",
-      phoneNumber: "456-789-0123",
-    },
-    {
-      key: "5",
-      no: "5",
-      userName: "Bob Brown",
-      email: "bobb@example.com",
-      phoneNumber: "567-890-1234",
-    },
-    {
-      key: "6",
-      no: "6",
-      userName: "Charlie Davis",
-      email: "charlied@example.com",
-      phoneNumber: "678-901-2345",
-    },
-    {
-      key: "7",
-      no: "7",
-      userName: "Dana Evans",
-      email: "danae@example.com",
-      phoneNumber: "789-012-3456",
-    },
-    {
-      key: "8",
-      no: "8",
-      userName: "Evan Foster",
-      email: "evanf@example.com",
-      phoneNumber: "890-123-4567",
-    },
-    {
-      key: "9",
-      no: "9",
-      userName: "Fiona Gray",
-      email: "fionag@example.com",
-      phoneNumber: "901-234-5678",
-    },
-    {
-      key: "10",
-      no: "10",
-      userName: "George Hall",
-      email: "georgeh@example.com",
-      phoneNumber: "012-345-6789",
-    },
-    {
-      key: "11",
-      no: "11",
-      userName: "Hannah Ives",
-      email: "hannahi@example.com",
-      phoneNumber: "111-222-3333",
-    },
-    {
-      key: "12",
-      no: "12",
-      userName: "Ian Jones",
-      email: "ianj@example.com",
-      phoneNumber: "222-333-4444",
-    },
-    {
-      key: "13",
-      no: "13",
-      userName: "Julia King",
-      email: "juliak@example.com",
-      phoneNumber: "333-444-5555",
-    },
-    {
-      key: "14",
-      no: "14",
-      userName: "Kevin Lee",
-      email: "kevinl@example.com",
-      phoneNumber: "444-555-6666",
-    },
-    {
-      key: "15",
-      no: "15",
-      userName: "Laura Moore",
-      email: "lauram@example.com",
-      phoneNumber: "555-666-7777",
-    },
-    {
-      key: "16",
-      no: "16",
-      userName: "Mike Nguyen",
-      email: "miken@example.com",
-      phoneNumber: "666-777-8888",
-    },
-    {
-      key: "17",
-      no: "17",
-      userName: "Nina Owens",
-      email: "ninao@example.com",
-      phoneNumber: "777-888-9999",
-    },
-    {
-      key: "18",
-      no: "18",
-      userName: "Oscar Patel",
-      email: "oscarp@example.com",
-      phoneNumber: "888-999-0000",
-    },
-    {
-      key: "19",
-      no: "19",
-      userName: "Paula Quinn",
-      email: "paulaq@example.com",
-      phoneNumber: "999-000-1111",
-    },
-    {
-      key: "20",
-      no: "20",
-      userName: "Quinn Ross",
-      email: "quinnr@example.com",
-      phoneNumber: "000-111-2222",
-    },
-    {
-      key: "21",
-      no: "21",
-      userName: "Rachel Scott",
-      email: "rachels@example.com",
-      phoneNumber: "101-202-3030",
-    },
-    {
-      key: "22",
-      no: "22",
-      userName: "Steve Thomas",
-      email: "stevet@example.com",
-      phoneNumber: "202-303-4040",
-    },
-    {
-      key: "23",
-      no: "23",
-      userName: "Tina Underwood",
-      email: "tinau@example.com",
-      phoneNumber: "303-404-5050",
-    },
-    {
-      key: "24",
-      no: "24",
-      userName: "Uma Vincent",
-      email: "umav@example.com",
-      phoneNumber: "404-505-6060",
-    },
-    {
-      key: "25",
-      no: "25",
-      userName: "Victor White",
-      email: "victorw@example.com",
-      phoneNumber: "505-606-7070",
-    },
-    {
-      key: "26",
-      no: "26",
-      userName: "Wendy Xu",
-      email: "wendyx@example.com",
-      phoneNumber: "606-707-8080",
-    },
-    {
-      key: "27",
-      no: "27",
-      userName: "Xander Young",
-      email: "xandery@example.com",
-      phoneNumber: "707-808-9090",
-    },
-    {
-      key: "28",
-      no: "28",
-      userName: "Yara Zane",
-      email: "yaraz@example.com",
-      phoneNumber: "808-909-1010",
-    },
-    {
-      key: "29",
-      no: "29",
-      userName: "Zach Allen",
-      email: "zacha@example.com",
-      phoneNumber: "909-101-2121",
-    },
-    {
-      key: "30",
-      no: "30",
-      userName: "Abby Baker",
-      email: "abbyb@example.com",
-      phoneNumber: "101-212-3232",
-    },
-  ];
+
+  const showUserDetails = (user) => {
+    setSelectedUser(user);
+    setIsModalOpen(true);
+  };
+
+ const userData = [
+   {
+     key: "1",
+     no: 1,
+     userName: "John Doe",
+     phoneNumber: "123-456-7890",
+     joinedDate: "2023-01-01",
+     email: "jdfkfdsaf@gmail.com",
+   },
+   {
+     key: "2",
+     no: 2,
+     userName: "Jane Smith",
+     phoneNumber: "987-654-3210",
+     joinedDate: "2023-02-15",
+     email: "janesmith@email.com",
+   },
+   {
+     key: "3",
+     no: 3,
+     userName: "Robert Brown",
+     phoneNumber: "555-123-4567",
+     joinedDate: "2023-03-10",
+     email: "robertbrown@email.com",
+   },
+   {
+     key: "4",
+     no: 4,
+     userName: "Emily Clark",
+     phoneNumber: "444-555-6666",
+     joinedDate: "2023-04-20",
+     email: "emilyclark@email.com",
+   },
+   {
+     key: "5",
+     no: 5,
+     userName: "Michael Johnson",
+     phoneNumber: "222-333-4444",
+     joinedDate: "2023-05-30",
+     email: "michaeljohnson@email.com",
+   },
+   {
+     key: "6",
+     no: 6,
+     userName: "Sarah Williams",
+     phoneNumber: "333-444-5555",
+     joinedDate: "2023-06-15",
+     email: "sarahwilliams@email.com",
+   },
+   {
+     key: "7",
+     no: 7,
+     userName: "David Lee",
+     phoneNumber: "666-777-8888",
+     joinedDate: "2023-07-25",
+     email: "davidlee@email.com",
+   },
+   {
+     key: "8",
+     no: 8,
+     userName: "Sophia Martinez",
+     phoneNumber: "555-999-0000",
+     joinedDate: "2023-08-05",
+     email: "sophiamartinez@email.com",
+   },
+   {
+     key: "9",
+     no: 9,
+     userName: "James Taylor",
+     phoneNumber: "777-888-9999",
+     joinedDate: "2023-09-15",
+     email: "jamestaylor@email.com",
+   },
+   {
+     key: "10",
+     no: 10,
+     userName: "Olivia Davis",
+     phoneNumber: "888-999-0001",
+     joinedDate: "2023-10-01",
+     email: "oliviadavis@email.com",
+   },
+   {
+     key: "11",
+     no: 11,
+     userName: "Ethan Wilson",
+     phoneNumber: "999-000-1111",
+     joinedDate: "2023-11-07",
+     email: "ethanwilson@email.com",
+   },
+   {
+     key: "12",
+     no: 12,
+     userName: "Isabella White",
+     phoneNumber: "000-111-2222",
+     joinedDate: "2023-12-22",
+     email: "isabellawhite@email.com",
+   },
+   {
+     key: "13",
+     no: 13,
+     userName: "Lucas Harris",
+     phoneNumber: "111-222-3333",
+     joinedDate: "2024-01-30",
+     email: "lucasharris@email.com",
+   },
+   {
+     key: "14",
+     no: 14,
+     userName: "Mia Young",
+     phoneNumber: "444-555-6667",
+     joinedDate: "2024-02-10",
+     email: "miayoung@email.com",
+   },
+   {
+     key: "15",
+     no: 15,
+     userName: "Aiden Walker",
+     phoneNumber: "555-666-7778",
+     joinedDate: "2024-03-14",
+     email: "aidenwalker@email.com",
+   },
+ ];
+
+
+  const dataSource = userData;
 
   const columns = [
     { title: "No", dataIndex: "no", key: "no" },
@@ -245,115 +171,128 @@ const Users = () => {
       ),
     },
     { title: "Phone Number", dataIndex: "phoneNumber", key: "phoneNumber" },
+    { title: "Joined Date", dataIndex: "joinedDate", key: "joinedDate" },
     { title: "Email", dataIndex: "email", key: "email" },
     {
       title: "Action",
       key: "action",
-      render: () => (
-        <button
-          onClick={showModal}
-          className="border border-[#14803c] text-[#14803c] rounded-lg p-2 bg-[#d3e8e6] hover:bg-[#b4d9d4] transition duration-200"
-        >
-          <MdBlockFlipped className="w-6 h-6 text-[#14803c]" />
-        </button>
+      render: (_, record) => (
+        <div className="flex items-center gap-2">
+          <button
+            onClick={showModal}
+            className="  text-[#082513] rounded-lg p-2  hover:bg-teal-400 transition duration-200"
+          >
+            <MdBlockFlipped className="w-6 h-6 text-red-400 hover:text-black" />
+          </button>
+          <button
+            onClick={() => showUserDetails(record)} // pass clicked user
+            className="  text-blue-500 rounded-lg p-2  hover:bg-blue-400 transition duration-200"
+          >
+            <FaEye className="w-6 h-6 text-blue-600" />
+          </button>
+        </div>
       ),
     },
   ];
 
   return (
-    <>
-      <div className="  rounded-t-lg mt-5 rounded-b-none  bg-[#013666] text-white py-3 px-4 flex justify-between items-center">
-        {/* Page Heading */}
-        <PageHeading title="User List" />
+    <><div>
 
-        {/* Search and Blocked Users Button */}
+      <div className="rounded-t-lg mt-5 rounded-b-none bg-[#013666] text-white py-3  flex flex-row justify-between items-center mx-5 px-5">
+        <PageHeading title="User List" />
         <div className="flex items-center gap-[100px]">
-          {/* Search Bar */}
-          <div className="relative w-full  sm:w-[300px]">
-            <div className="flex items-center">
+          <div className="relative w-full sm:w-[300px]">
+            <div className="flex items-center ">
               <input
                 type="text"
                 placeholder="Search User"
-                className="border-2  py-2 pl-10 pr-4 text-black  outline-none w-full rounded-md  "
+                className="border-2 py-2 pl-10 pr-4 text-black outline-none w-full rounded-md "
               />
               <span className="text-gray-400 absolute top-0 left-0 h-full px-3 flex items-center justify-center">
                 <IoSearch className="text-[1.3rem]" />
               </span>
             </div>
           </div>
-
-          {/* Blocked Users Button */}
           <button className="bg-white text-[#013666] py-2 px-6 rounded-md hover:bg-gray-100 focus:outline-none">
             Blocked Users
           </button>
         </div>
+
       </div>
+        <div className="mx-5 rounded-b-lg ">
+          <ConfigProvider
+            theme={
+              {
+                /* your theme */
+              }
+            }
+          >
+            <Table
+              dataSource={dataSource}
+              columns={columns}
+              pagination={{ pageSize: 10 }}
+              scroll={{ x: "max-content" }}
+            />
 
-      <ConfigProvider
-        theme={{
-          components: {
-            InputNumber: {
-              activeBorderColor: "#14803c",
-            },
-            Pagination: {
-              colorPrimaryBorder: "rgb(19,194,194)",
-              colorBorder: "rgb(82,196,26)",
-              colorTextPlaceholder: "rgb(82,196,26)",
-              colorTextDisabled: "rgb(82,196,26)",
-              colorBgTextActive: "rgb(82,196,26)",
-              itemActiveBgDisabled: "rgb(82,196,26)",
-              itemActiveColorDisabled: "rgb(0,0,0)",
-              itemBg: "rgb(82,196,26)",
-              colorBgTextHover: "rgb(82,196,26)",
-              colorPrimary: "rgb(82,196,26)",
-              colorPrimaryHover: "rgb(82,196,26)",
-            },
-            Table: {
-              headerBg: "#ffff",
-              headerColor: "rgb(0,0,0)",
-              cellFontSize: 16,
-              
-            },
-          },
-        }}
-      >
-        <Table
-          dataSource={dataSource}
-          columns={columns}
-          pagination={{ pageSize: 10 }}
-          scroll={{ x: "max-content" }}
-        />
-
-        <Modal
-          open={isModalOpen}
-          centered
-          onCancel={handleCancel}
-          footer={null}
-        >
-          <div className="p-5">
-            <h1 className="text-4xl text-center text-[#0D0D0D]">
-              Are you sure you want to block ?
-            </h1>
-
-            <div className="text-center py-5">
-              <button
-                onClick={handleOk}
-                className="bg-[#14803c] text-white font-semibold w-full py-2 rounded transition duration-200"
-              >
-                Yes,Block
-              </button>
-            </div>
-            <div className="text-center pb-5">
-              <button
-                onClick={handleOk}
-                className="text-[#14803c] border-2 border-green-600 bg-white font-semibold w-full py-2 rounded transition duration-200"
-              >
-                No,Don’t Block
-              </button>
-            </div>
-          </div>
-        </Modal>
-      </ConfigProvider>
+            <Modal
+              open={isModalOpen}
+              centered
+              onCancel={handleCancel}
+              footer={null}
+            >
+              {selectedUser ? (
+                <div className="p-5 text-center ">
+                  <img
+                    src={`https://avatar.iran.liara.run/public/${selectedUser.no}`}
+                    alt="Avatar"
+                    className="w-24 h-24 rounded-full mx-auto mb-4"
+                  />
+                  <h2 className="text-2xl font-bold mb-2">
+                    {selectedUser.userName}
+                  </h2>
+                  <p>
+                    <strong>Email:</strong> {selectedUser.email}
+                  </p>
+                  <p>
+                    <strong>Phone:</strong> {selectedUser.phoneNumber}
+                  </p>
+                  <p>
+                    <strong>User ID:</strong> {selectedUser.key}
+                  </p>
+                  <button
+                    onClick={handleOk}
+                    className="mt-5 bg-[#14803c] text-white font-semibold w-full py-2 rounded transition duration-200"
+                  >
+                    Close
+                  </button>
+                </div>
+              ) : (
+                <div className="p-5 text-center">
+                  <h1 className="text-4xl text-[#0D0D0D]">
+                    Are you sure you want to block?
+                  </h1>
+                  <div className="text-center py-5">
+                    <button
+                      onClick={handleOk}
+                      className="bg-[#14803c] text-white font-semibold w-full py-2 rounded transition duration-200"
+                    >
+                      Yes, Block
+                    </button>
+                  </div>
+                  <div className="text-center pb-5">
+                    <button
+                      onClick={handleOk}
+                      className="text-[#14803c] border-2 border-green-600 bg-white font-semibold w-full py-2 rounded transition duration-200"
+                    >
+                      No, Don’t Block
+                    </button>
+                  </div>
+                </div>
+              )}
+            </Modal>
+          </ConfigProvider>
+        </div>
+    </div>
     </>
   );
 };
