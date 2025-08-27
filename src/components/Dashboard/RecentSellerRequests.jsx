@@ -137,10 +137,10 @@ const RecentSellerRequests = ({ showModal }) => {
             colorPrimaryHover: "rgb(82,196,26)",
           },
           Table: {
-            headerBg: "#14803c",
+            headerBg: "#001c54",
             headerColor: "rgb(255,255,255)",
             cellFontSize: 16,
-            headerSplitColor: "#14803c",
+            headerSplitColor: "#001c54",
           },
         },
       }}

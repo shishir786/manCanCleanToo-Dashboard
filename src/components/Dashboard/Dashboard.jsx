@@ -7,7 +7,7 @@ import UserRatio from "./UserRatio";
 
 function DashboardPage() {
   const currentYear = dayjs().year();
-  const startYear = 1900;
+  const startYear = 2000;
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
