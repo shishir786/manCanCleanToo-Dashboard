@@ -3,7 +3,6 @@ import dayjs from "dayjs";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import RecentSellerRequests from "./RecentSellerRequests";
-import SellerGrowth from "./SellerGrowth";
 import UserRatio from "./UserRatio";
 
 function DashboardPage() {
@@ -33,7 +32,7 @@ function DashboardPage() {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col pt-10 pr-5">
       {/* upper 2 blocks */}
       <div
         className="w-full flex bg-white rounded-lg shadow-sm items-center justify-center border border-[#E2E8F0]"
