@@ -49,7 +49,6 @@ const SideBar = () => {
 
   useEffect(() => {
     const currentPath = location.pathname;
-
     let activeParent = null;
 
     AdminItems.forEach((item) => {
@@ -88,26 +87,24 @@ const SideBar = () => {
   };
 
   return (
-    <div className="min-h-[100vh] p-6 rounded-md">
-      <div className="custom-sidebar-logo flex justify-center">
-        <img src={logo} alt="Logo" className="w-[139px] mt-[64px] h-[80px]" />
-      </div>
+    <div className="h-screen p-6 bg-[#FFFEDE] rounded-md flex flex-col">
+      <div className="bg-white rounded-lg shadow-md flex flex-col h-full">
+        <div className="flex flex-col items-center mb-6">
+          <img src={logo} alt="Logo" className="w-[139px] mt-6 h-[80px]" />
+          <h2 className="font-bold w-[233px] text-[32px] text-[#013666] text-center mt-6">
+            Men Can Distribute Too
+          </h2>
+        </div>
 
-      <div className="items-center text-center flex justify-center mt-6 mb-6">
-        <h2 className="font-bold w-[233px] h-[60px] text-[32px] text-[#013666]">
-          Men Can Distribute Too
-        </h2>
-      </div>
-      <div className="menu-items">
-        <div>
+        {/* Menu */}
+        <div className="flex-1 overflow-y-auto no-scrollbar">
           {AdminItems.map((item) => {
             const isActive = selectedKey === item.key;
-
             return (
-              <div key={item.key}>
+              <div key={item.key} className="mb-2">
                 <Link
                   to={item.link}
-                  className={`menu-item my-4 mx-5 py-3 px-3 flex items-center cursor-pointer transition-colors ${
+                  className={`menu-item flex items-center cursor-pointer py-3 px-3 mx-5 transition-colors ${
                     isActive
                       ? "bg-[#013666] text-white rounded-md"
                       : "bg-white rounded-md hover:bg-[#B3D3C8]"
@@ -135,7 +132,7 @@ const SideBar = () => {
 
                 {item.children && (
                   <div
-                    className={`children-menu bg-white -my-2 mx-5 transition-all duration-300 overflow-hidden`}
+                    className="children-menu bg-white mx-5 overflow-hidden transition-all duration-300"
                     style={{
                       maxHeight: expandedKeys.includes(item.key)
                         ? `${contentRef.current[item.key]?.scrollHeight}px`
@@ -169,19 +166,17 @@ const SideBar = () => {
             );
           })}
         </div>
-      </div>
 
-      {/* Logout Button */}
-      <div className="w-full p-4 px-5">
-        <button
-          onClick={handleLogout}
-          className="w-full flex text-red-500 text-start rounded-md p-3 mt-10"
-        >
-          <span className="text-2xl">
-            <IoIosLogIn />
-          </span>
-          <span className="ml-3">Log Out</span>
-        </button>
+        {/* Logout */}
+        <div className="w-full p-4 px-5 mt-4">
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center text-red-500 text-start rounded-md p-3"
+          >
+            <IoIosLogIn className="text-2xl mr-3" />
+            <span>Log Out</span>
+          </button>
+        </div>
       </div>
     </div>
   );
