@@ -384,7 +384,7 @@ const Users = () => {
                     </button>
                     <button
                       onClick={handleOk}
-                      className="bg-red-500 text-white font-semibold w-full py-2 rounded transition duration-200"
+                      className="bg-red-500 text-white fosdfsdnt-semibold w-full py-2 rounded transition duration-200"
                     >
                       Yes, Confirm
                     </button>

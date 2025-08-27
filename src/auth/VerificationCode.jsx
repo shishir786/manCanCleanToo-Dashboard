@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BrandLogo from "../shared/BrandLogo";
+import LoginLogo from "../assets/header/menfile1.svg";
 
 function VerificationCode() {
   const [code, setCode] = useState(new Array(5).fill(""));
@@ -23,12 +24,20 @@ function VerificationCode() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-white p-5">
-      <div className="bg-white relative shadow-lg rounded-2xl px-10 py-20 w-full max-w-xl text-center">
-        <BrandLogo
-          status=" Check your email"
-          information=" Please enter your email to get verification code."
-        />
+      <div className="bg-white relative  rounded-2xl px-10 py-20 w-full max-w-xl text-center">
+        <div className="flex justify-center ">
+          <img className="w-[208px] h-[120px]" src={LoginLogo} alt="LOgo" />
+        </div>
+        <h2 className="text-[44px] font-semibold  text-[#001C54]">
+          Men Can Distribute Too
+        </h2>
         <form className="space-y-5">
+          <div className="text-start">
+            <h2 className="font-bold text-2xl text-[#001C54]">Verify OTP</h2>
+            <p className="text-gray-600 mt-2 text-sm">
+              Please check your email. We have sent a code to contact @gmail.com
+            </p>
+          </div>
           <div className="flex justify-center gap-2">
             {code.map((digit, index) => (
               <input
@@ -38,7 +47,7 @@ function VerificationCode() {
                 maxLength="1"
                 value={digit}
                 onChange={(e) => handleChange(e.target.value, index)}
-                className="shadow-xs w-12 h-12 text-2xl text-center border border-[#FF914C] text-[#FF914C] rounded-lg focus:outline-none"
+                className="shadow-xs w-12 h-12 text-2xl text-center border border-[#001C54] text-[#001C54] rounded-lg focus:outline-none"
               />
             ))}
           </div>
@@ -47,14 +56,17 @@ function VerificationCode() {
             <button
               onClick={handleVerifyCode}
               type="button"
-              className="whitespace-nowrap w-full bg-[#FF914C] text-white font-semibold py-3 rounded-lg shadow-lg cursor-pointer my-5"
+              className="whitespace-nowrap w-full bg-[#001C54] text-white font-semibold py-3 rounded-lg shadow-lg cursor-pointer my-5"
             >
               Continue
             </button>
-            <p className="text-gray-600 text-center mt-10">
+            <div className="flex w-full justify-between items-center ">
+
+            <p className="text-gray-600 text-center mt-2">
               You have not received the email?{" "}
-              <span className="text-[#FF914C]"> Resend</span>
             </p>
+              <span className="text-[#001C54] text-end underline">Resend..</span>
+            </div>
           </div>
         </form>
       </div>

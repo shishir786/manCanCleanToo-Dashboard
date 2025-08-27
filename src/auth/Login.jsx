@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "antd/dist/reset.css";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import BrandLogo from "../shared/BrandLogo";
+import LoginLogo from "../assets/header/menfile1.svg"
 import { Link } from "react-router-dom";
 
 function Login() {
@@ -25,15 +25,17 @@ function Login() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-white p-5">
-      <div className="bg-white shadow-lg relative rounded-2xl px-5 py-20 w-full max-w-xl text-center">
-        <BrandLogo
-          status="Login to your account"
-          information="please enter your email and password to continue."
-        />
+      <div className="bg-white  relative rounded-2xl px-5 py-20 w-full max-w-xl text-center">
+        <div className="flex justify-center ">
+          <img className="w-[208px] h-[120px]" src={LoginLogo} alt="LOgo" />
+        </div>
+          <h2 className="text-[48px] font-semibold  text-[#001C54]">
+            Men Can Distribute Too
+          </h2>
         <form className="space-y-5">
           <div className="w-full">
             <label className="text-xl text-gray-800 mb-2 flex justify-start text-start">
-              Email address
+              Email
             </label>
             <input
               type="email"
@@ -41,7 +43,7 @@ function Login() {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className="w-full px-5 py-3 bg-white text-gray-600 border-2 border-[#FF914C] rounded-lg outline-none mt-5 placeholder:text-gray-600"
+              className="w-full px-5 py-3 bg-white text-gray-600 border-2  rounded-lg outline-none mt-5 placeholder:text-gray-600"
               required
             />
           </div>
@@ -56,7 +58,7 @@ function Login() {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="**********"
-                className="w-full px-5 py-3 bg-white text-gray-600 border-2 border-[#FF914C] rounded-lg outline-none mt-5 placeholder:text-gray-600"
+                className="w-full px-5 py-3 bg-white text-gray-600 border-2  rounded-lg outline-none mt-5 placeholder:text-gray-600"
                 required
               />
               <button
@@ -65,9 +67,9 @@ function Login() {
                 className="absolute right-3 bottom-4 flex items-center text-gray-400"
               >
                 {showPassword ? (
-                  <IoEyeOffOutline className="w-5 h-5 text-[#FF914C]" />
+                  <IoEyeOffOutline className="w-5 h-5 " />
                 ) : (
-                  <IoEyeOutline className="w-5 h-5 text-[#FF914C]" />
+                  <IoEyeOutline className="w-5 h-5 " />
                 )}
               </button>
             </div>
@@ -98,7 +100,7 @@ function Login() {
                       height="21"
                       rx="4"
                       className=""
-                      stroke="#FF914C"
+                      stroke="#001C54"
                     ></rect>
                     <path
                       id="Vector"
@@ -124,7 +126,7 @@ function Login() {
                       height="21"
                       rx="4"
                       className="fill-transparent"
-                      stroke="#FF914C"
+                      stroke="#001C54"
                     ></rect>
                   </g>
                 </svg>
@@ -134,7 +136,7 @@ function Login() {
             </label>
             <Link
               to="/forget-password"
-              className="text-[#FF914C] text-xl hover:text-[#FF914C]/80"
+              className="text-[#001C54] text-xl hover:text-[#FF914C]/80"
             >
               Forgot Password?
             </Link>
@@ -144,7 +146,7 @@ function Login() {
             <div className="flex justify-center items-center text-white">
               <button
                 type="submit"
-                className="w-full bg-[#FF914C] font-semibold py-3 px-6 rounded-lg shadow-lg cursor-pointer mt-5"
+                className="w-full bg-[#001C54] font-semibold py-3 px-6 rounded-lg shadow-lg cursor-pointer mt-5"
               >
                 Sign In
               </button>
