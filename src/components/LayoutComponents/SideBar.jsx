@@ -1,17 +1,11 @@
-import {
-  MdDashboard,
-  MdManageAccounts,
-  MdOutlineCategory,
-} from "react-icons/md";
-import { FaUsers, FaChevronRight, FaCog } from "react-icons/fa";
-import { IoIosLogIn } from "react-icons/io";
-import { IoChatboxEllipsesOutline } from "react-icons/io5";
-import logo from "../../assets/header/logo.png";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { BiCommand } from "react-icons/bi";
+import { FaChevronRight, FaCog, FaUsers } from "react-icons/fa";
+import { IoIosLogIn } from "react-icons/io";
+import { MdDashboard } from "react-icons/md";
 import { TbHomeDollar } from "react-icons/tb";
-import { LuBadgeCheck } from "react-icons/lu";
-import { BiCheckShield, BiCommand } from "react-icons/bi";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from "../../assets/header/menfile1.svg";
 
 export const AdminItems = [
   {
@@ -32,60 +26,14 @@ export const AdminItems = [
     icon: TbHomeDollar,
     link: "/dashboard/seller-management",
   },
-  {
-    key: "subscription",
-    label: "Subscription",
-    icon: LuBadgeCheck,
-    link: "/dashboard/subscription",
-  },
-  {
-    key: "categorymanagement",
-    label: "Category Management",
-    icon: MdOutlineCategory,
-    link: "/category-management",
-  },
-  {
-    key: "premiumSubscribers",
-    label: "Premium Subscribers",
-    icon: MdManageAccounts,
-    link: "/premium-subscribers",
-  },
+
   {
     key: "englishAdPromotion",
     label: "English Ads Promotion",
     icon: BiCommand,
     link: "/ads-promotion",
   },
-   {
-    key: "arabicAdPromotion",
-    label: "Arabic Ads Promotion",
-    icon: BiCommand,
-    link: "/ads-promotion",
-  },
-  {
-    key: "customerSupport",
-    label: "Customer Support",
-    icon: BiCheckShield,
-    link: "/support",
-  },
-  {
-    key: "vendorSupport",
-    label: "Vendor Support",
-    icon: BiCheckShield,
-    link: "/support",
-  },
-  {
-    key: "customerChat",
-    label: "Customer Chat",
-    icon: IoChatboxEllipsesOutline,
-    link: "/chat",
-  },
-  {
-    key: "vendorChat",
-    label: "Vendor Chat",
-    icon: IoChatboxEllipsesOutline,
-    link: "/chat",
-  },
+
   {
     key: "settings",
     label: "Settings",
@@ -165,8 +113,13 @@ const SideBar = () => {
 
   return (
     <div className="min-h-[100vh] ">
-      <div className="custom-sidebar-logo flex justify-center bg-gray-600">
-        <img src={logo} alt="Logo" className="w-[95px]" />
+      <div className="custom-sidebar-logo flex justify-center ">
+        <img src={logo} alt="Logo" className="w-[139px] h-[80px]" />
+      </div>
+      <div>
+        <h2 className="font-bold text-2xl text-center">
+          Men Can Distribute Too
+        </h2>
       </div>
       <div className="menu-items">
         <div>
@@ -259,7 +212,7 @@ const SideBar = () => {
       <div className="  w-full p-4 px-5">
         <button
           onClick={handleLogout}
-          className="w-full flex bg-[#0B704E] text-white text-start rounded-md p-3 mt-10"
+          className="w-full flex  text-red-500 text-start rounded-md p-3 mt-10"
         >
           <span className="text-2xl">
             <IoIosLogIn />
