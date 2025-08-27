@@ -3,7 +3,6 @@ import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { MdBlockFlipped } from "react-icons/md";
 
-
 const RecentUsers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -16,13 +15,11 @@ const RecentUsers = () => {
   const showModal = () => {
     setIsModalOpen(true);
   };
-  
+
   const showUserDetails = (user) => {
     setSelectedUser(user);
     setIsModalOpen(true);
   };
-
-
 
   const dataSource = [
     {
@@ -84,11 +81,11 @@ const RecentUsers = () => {
       key: "fullName",
       render: (_, record) => (
         <div className="flex items-center gap-3">
-          {/* <img
+          <img
             src={`https://avatar.iran.liara.run/public/${record.no}`}
             className="w-10 h-10 object-cover rounded-full"
             alt="User Avatar"
-          /> */}
+          />
           <span>{record.fullName}</span>
         </div>
       ),
@@ -103,7 +100,7 @@ const RecentUsers = () => {
       render: (date) => new Date(date).toLocaleDateString("en-US"),
     },
     {
-     title: "Action",
+      title: "Action",
       key: "action",
       render: (_, record) => (
         <div className="flex items-center gap-2">
@@ -217,7 +214,6 @@ const RecentUsers = () => {
             </div>
           )}
         </Modal>
-
       </ConfigProvider>
     </>
   );
