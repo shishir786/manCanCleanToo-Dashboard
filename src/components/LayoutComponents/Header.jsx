@@ -31,10 +31,10 @@ const Header = () => {
         <div className="flex items-center gap-6">
           {/*  Menu icon  */}
           <button
-            // onClick={showDrawer}
-            className="flex items-center justify-center"
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="hidden lg:flex items-center justify-center p-2 rounded-md hover:bg-gray-100 shrink-0"
           >
-            <FaBars className="w-8 h-8 text-primary" strokeWidth={4} />
+            <FaBars className="w-7 h-7 text-primary" strokeWidth={4} />
           </button>
 
           {/* Welcome Message */}
