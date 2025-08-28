@@ -3,32 +3,18 @@ import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { HiOutlineBell, HiOutlineChatAlt, HiOutlineUser } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { useNotification } from "../../context/NotificationContext";
 
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
   const [isNotifModalOpen, setIsNotifModalOpen] = useState(false);
-  const notifications = [
-    {
-      id: 1,
-      text: "A new user join in your app.",
-      time: "Fri, 12:30pm",
-    },
-    {
-      id: 2,
-      text: "New Feedback Recieved.",
-      time: "Fri, 12:30pm",
-    },
-    {
-      id: 3,
-      text: "A new user join in your app.",
-      time: "Fri, 12:30pm",
-    },
-  ];
+  const { notifications } = useNotification();
+  const latestNotifications = notifications.slice(0, 3);
 
   const handleNotifOpen = () => setIsNotifModalOpen(true);
   const handleNotifClose = () => setIsNotifModalOpen(false);
   const handleLoadMore = () => {
     setIsNotifModalOpen(false);
-    window.location.href = "/dashboard/Settings/notification";
+    window.location.href = "/dashboard/notification/all-notifications";
   };
   return (
     <div className="flex w-full-20 h-[84px] justify-center items-center px-4 py-4 bg-secondary rounded-lg shadow-md mt-5 mx-5">
@@ -100,33 +86,42 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
               </h2>
               <div className="border-b border-[#013666] mb-4"></div>
               <div className="flex flex-col gap-3 mb-6">
-                {notifications.map((notif) => (
-                  <div key={notif.id} className="flex items-center gap-3">
-                    <div className="bg-[#F5F7FA] rounded-md p-2 flex items-center justify-center">
-                      <HiOutlineBell className="w-6 h-6 text-[#013666]" />
-                    </div>
+                {latestNotifications.map((notif) => (
+                  <div
+                    key={notif.id}
+                    className="flex items-center gap-3 bg-[#F5F7FA] rounded-md p-3"
+                  >
+                    <img
+                      src={notif.avatar}
+                      alt="Avatar"
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
                     <div>
-                      <div className="text-[#013666] font-medium text-base">
-                        {notif.text}
+                      <div className="text-[#013666] font-semibold text-base">
+                        {notif.title}
                       </div>
-                      <div className="text-[#7A7A7A] text-xs">{notif.time}</div>
+                      <div className="text-gray-700 text-sm">
+                        {notif.description}
+                      </div>
+                      <div className="text-[#7A7A7A] text-xs mt-1">
+                        {notif.date} • {notif.time}
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
-              <Link to="/dashboard/Settings/notification">
-                <button
-                  className="w-full bg-[#013666] text-white font-semibold py-2 rounded-lg text-lg"
-                  onClick={handleLoadMore}
-                >
-                  Load More
-                </button>
-              </Link>
+
+              <button
+                className="w-full bg-[#013666] text-white font-semibold py-2 rounded-lg text-lg"
+                onClick={handleLoadMore}
+              >
+                Load More
+              </button>
             </div>
           </Modal>
 
           {/* Profile Icon */}
-          <Link to="/dashboard/Settings/profile">
+          <Link to="/dashboard/profile/edit-profile">
             <div className="flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary">
               <HiOutlineUser className="w-8 h-8 text-primary" strokeWidth={2} />
             </div>
