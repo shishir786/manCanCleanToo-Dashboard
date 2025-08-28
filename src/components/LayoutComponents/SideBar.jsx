@@ -5,6 +5,7 @@ import { IoIosLogIn } from "react-icons/io";
 import { MdDashboard } from "react-icons/md";
 import { TbHomeDollar } from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Modal } from "antd"; // ✅ FIXED import
 import logo from "../../assets/header/menfile1.svg";
 
 export const AdminItems = [
@@ -43,6 +44,7 @@ export const AdminItems = [
 const SideBar = () => {
   const [selectedKey, setSelectedKey] = useState("dashboard");
   const [expandedKeys, setExpandedKeys] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false); // ✅ FIXED state
   const location = useLocation();
   const navigate = useNavigate();
   const contentRef = useRef({});
@@ -82,8 +84,18 @@ const SideBar = () => {
     );
   };
 
+  // ✅ Modal Handlers
+  const handleOk = () => {
+    console.log("Confirmed!");
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   const handleLogout = () => {
-    navigate("/login");
+    setIsModalOpen(true); // show modal instead of direct logout
   };
 
   return (
@@ -91,7 +103,7 @@ const SideBar = () => {
       <div className="bg-white rounded-lg shadow-md flex flex-col h-full">
         <div className="flex flex-col items-center mb-6">
           <img src={logo} alt="Logo" className="w-[139px] mt-6 h-[80px]" />
-          <h2 className="font-bold  text-[32px] text-[#013666] text-center mt-6">
+          <h2 className="font-bold text-[32px] text-[#013666] text-center mt-6">
             Men Can Distribute Too
           </h2>
         </div>
@@ -165,19 +177,50 @@ const SideBar = () => {
               </div>
             );
           })}
+
+          {/* Logout */}
           <div className="w-full p-4 px-5 mt-8 ">
             <button
               onClick={handleLogout}
-              className="w-full flex items-center text-red-500 text-start rounded-md  p-3"
+              className="w-full flex items-center text-red-500 text-start rounded-md p-3"
             >
               <IoIosLogIn className="text-2xl mr-3" />
               <span>Log Out</span>
             </button>
           </div>
         </div>
-
-        {/* Logout */}
       </div>
+
+      {/* ✅ Confirmation Modal */}
+      <Modal
+        open={isModalOpen}
+        centered
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <div className="p-5 text-center">
+          <h1 className="text-2xl text-[#0D0D0D] font-semibold mb-4">
+            Are you sure you want to log out?
+          </h1>
+          <div className="flex justify-between gap-5">
+            <button
+              onClick={handleCancel}
+              className="text-[#001C54] border-2 border-[#001C54] bg-white font-semibold w-full py-2 rounded transition duration-200"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => {
+                handleOk();
+                navigate("/login");
+              }}
+              className="bg-red-500 text-white font-semibold w-full py-2 rounded transition duration-200"
+            >
+              Yes, Log Out
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };
