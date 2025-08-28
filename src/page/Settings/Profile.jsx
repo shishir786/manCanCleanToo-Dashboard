@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ChangePass from "./ChangePass";
 import EditProfile from "./EditProfile";
 import { Edit } from "lucide-react";
 
@@ -48,23 +47,12 @@ function ProfilePage() {
             >
               Edit Profile
             </p>
-            <p
-              onClick={() => setActiveTab("changePassword")}
-              className={`cursor-pointer pb-1 ${
-                activeTab === "changePassword"
-                  ? "text-[#013666] border-b-2 border-[#013666]"
-                  : "text-[#6A6D76]"
-              }`}
-            >
-              Change Password
-            </p>
           </div>
 
           {/* Tab Content Section */}
           <div className="flex justify-center items-center p-2 rounded-md">
             <div className="w-full max-w-3xl">
               {activeTab === "editProfile" && <EditProfile />}
-              {activeTab === "changePassword" && <ChangePass />}
             </div>
           </div>
         </div>
