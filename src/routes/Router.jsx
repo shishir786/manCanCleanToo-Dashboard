@@ -6,18 +6,20 @@ import ResetPassword from "../auth/ResetPassword";
 import VerificationCode from "../auth/VerificationCode";
 import Dashboard from "../components/Dashboard/Dashboard";
 import DashboardLayout from "../layout/DashboardLayout";
+import BlockedUser from "../page/BlockedUser/BlockedUser";
 import CategoryManagement from "../page/CategoryManagement/CategoryManagement";
 import Chat from "../page/Chat/Chat";
-import Subscription from "../page/subscription/Subscription";
-import Users from "../page/UserManagement/Users";
-import BlockedUser from "../page/BlockedUser/BlockedUser";
-import Setting from "../page/Settings/Setting";
+import AboutUs from "../page/Settings/AboutUs";
 import ChangePass from "../page/Settings/ChangePass";
+import ProfilePage from "../page/Settings/Profile";
+import Setting from "../page/Settings/Setting";
+import Users from "../page/UserManagement/Users";
+import ForgotPassword from "./../page/Settings/ForgotPassword";
 import PrivacyPolicy from "./../page/Settings/PrivacyPolicy";
 import TermsAndCondition from "./../page/Settings/TermsCondition";
-import AboutUs from "../page/Settings/AboutUs";
-import ForgotPassword from "./../page/Settings/ForgotPassword";
 import VerifyOtp from "./../page/Settings/VerifyOtp";
+import Notification from "../page/Notification/Notification";
+import Feedback from "../components/Dashboard/Feedback";
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +45,7 @@ export const router = createBrowserRouter([
 
       {
         path: "/dashboard/feedback",
-        element: <Subscription />,
+        element: <Feedback />,
       },
 
       {
@@ -83,7 +85,15 @@ export const router = createBrowserRouter([
         path: "/dashboard/Settings/chat",
         element: <Chat />,
       },
-    ],
+      {
+        path: "/dashboard/profile/edit-profile",
+        element: <ProfilePage />,
+      },
+      {
+        path: "/dashboard/notification/all-notifications",
+        element: <Notification/>,
+      },
+    ]
   },
   {
     path: "/login",
