@@ -1,8 +1,35 @@
+import { Modal } from "antd";
+import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { HiOutlineBell, HiOutlineChatAlt, HiOutlineUser } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 const Header = ({ sidebarOpen, setSidebarOpen }) => {
+  const [isNotifModalOpen, setIsNotifModalOpen] = useState(false);
+  const notifications = [
+    {
+      id: 1,
+      text: "A new user join in your app.",
+      time: "Fri, 12:30pm",
+    },
+    {
+      id: 2,
+      text: "New Feedback Recieved.",
+      time: "Fri, 12:30pm",
+    },
+    {
+      id: 3,
+      text: "A new user join in your app.",
+      time: "Fri, 12:30pm",
+    },
+  ];
+
+  const handleNotifOpen = () => setIsNotifModalOpen(true);
+  const handleNotifClose = () => setIsNotifModalOpen(false);
+  const handleLoadMore = () => {
+    setIsNotifModalOpen(false);
+    window.location.href = "/dashboard/Settings/notification";
+  };
   return (
     <div className="flex w-full-20 h-[84px] justify-center items-center px-4 py-4 bg-secondary rounded-lg shadow-md mt-5 mx-5">
       <div className="flex w-full justify-between items-center ml-5">
@@ -40,17 +67,63 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
           </Link>
 
           {/* Notification Icon */}
-          <Link to="/dashboard/Settings/notification">
-            <div className="relative flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary p-2 hover:bg-gray-100">
-              <HiOutlineBell className="w-9 h-9 text-primary" strokeWidth={2} />
-              {/* Red notification badge */}
-              <div className="absolute top-2 right-2 w-4 h-4 bg-theme-red rounded-full flex items-center justify-center">
-                <span className="text-secondary font-montserrat text-xs font-normal">
-                  1
-                </span>
-              </div>
+
+          <div
+            className="relative flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary p-2 hover:bg-gray-100 cursor-pointer"
+            onClick={handleNotifOpen}
+          >
+            <HiOutlineBell className="w-9 h-9 text-primary" strokeWidth={2} />
+            {/* Red notification badge */}
+            <div className="absolute top-2 right-2 w-4 h-4 bg-theme-red rounded-full flex items-center justify-center">
+              <span className="text-secondary font-montserrat text-xs font-normal">
+                1
+              </span>
             </div>
-          </Link>
+          </div>
+          {/* Notification Modal */}
+          <Modal
+            open={isNotifModalOpen}
+            onCancel={handleNotifClose}
+            footer={null}
+            width={400}
+            bodyStyle={{ padding: 0, borderRadius: 12 }}
+            style={{
+              top: 120,
+              right: 35,
+              position: "absolute",
+            }}
+            mask={false}
+          >
+            <div className="p-6 pt-4 pb-6 rounded-lg bg-white">
+              <h2 className="text-center text-[#013666] text-2xl font-bold mb-2">
+                Notifications
+              </h2>
+              <div className="border-b border-[#013666] mb-4"></div>
+              <div className="flex flex-col gap-3 mb-6">
+                {notifications.map((notif) => (
+                  <div key={notif.id} className="flex items-center gap-3">
+                    <div className="bg-[#F5F7FA] rounded-md p-2 flex items-center justify-center">
+                      <HiOutlineBell className="w-6 h-6 text-[#013666]" />
+                    </div>
+                    <div>
+                      <div className="text-[#013666] font-medium text-base">
+                        {notif.text}
+                      </div>
+                      <div className="text-[#7A7A7A] text-xs">{notif.time}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <Link to="/dashboard/Settings/notification">
+                <button
+                  className="w-full bg-[#013666] text-white font-semibold py-2 rounded-lg text-lg"
+                  onClick={handleLoadMore}
+                >
+                  Load More
+                </button>
+              </Link>
+            </div>
+          </Modal>
 
           {/* Profile Icon */}
           <Link to="/dashboard/Settings/profile">
