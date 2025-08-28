@@ -11,6 +11,9 @@ select option {
   color: #a19c00 !important;
   padding: 10px;
 }
+body {
+  font-family: "Montserrat", sans-serif;
+}
 
 /* Hover effect for buttons */
 
