@@ -165,18 +165,18 @@ const SideBar = () => {
               </div>
             );
           })}
+          <div className="w-full p-4 px-5 mt-8 ">
+            <button
+              onClick={handleLogout}
+              className="w-full flex items-center text-red-500 text-start rounded-md  p-3"
+            >
+              <IoIosLogIn className="text-2xl mr-3" />
+              <span>Log Out</span>
+            </button>
+          </div>
         </div>
 
         {/* Logout */}
-        <div className="w-full p-4 px-5 mt-4">
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center text-red-500 text-start rounded-md p-3"
-          >
-            <IoIosLogIn className="text-2xl mr-3" />
-            <span>Log Out</span>
-          </button>
-        </div>
       </div>
     </div>
   );
