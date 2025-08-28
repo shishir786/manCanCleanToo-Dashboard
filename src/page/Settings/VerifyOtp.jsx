@@ -29,7 +29,7 @@ function VerifyOtp() {
         <PageHeading title="Forgot Password" />
       </div>
 
-      <div className=" flex justify-center items-center min-h-screen bg-white mx-5 mt-5 ">
+      <div className=" flex justify-center items-center min-h-screen bg-white mx-5  ">
         <div className="bg-white relative  rounded-2xl px-10 py-20 w-full max-w-2xl  text-center">
           <form className="space-y-5">
             <div className="text-start">
