@@ -22,7 +22,7 @@ function PrivacyPolicy() {
   };
 
   return (
-    <div className="p-5 min-h-screen bg-gray-100">
+    <div>
       {/* Header */}
       <div className="rounded-t-lg mt-5 bg-[#013666] text-white py-3 flex flex-row justify-between items-center mx-5 px-5">
         <PageHeading title="Privacy Policy" />
