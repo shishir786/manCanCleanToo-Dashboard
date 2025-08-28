@@ -126,15 +126,15 @@ const RecentUsers = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={showModal}
-            className="text-[#013666] rounded-lg p-2 hover:bg-[#013666] hover:text-white transition duration-200"
+            className="text-[#013666] rounded-lg p-2  hover:text-white transition duration-200"
           >
             <MdBlockFlipped className="w-6 h-6 text-red-400 hover:text-black" />
           </button>
           <button
             onClick={() => showUserDetails(record)}
-            className="text-[#013666] rounded-lg p-2 hover:bg-[#013666] hover:text-white transition duration-200"
+            className="text-[#013666] rounded-lg p-2   transition duration-200"
           >
-            <FaEye className="w-6 h-6 text-[#013666]" />
+            <FaEye className="w-6 h-6 text-[#013666] hover:text-teal-500" />
           </button>
         </div>
       ),

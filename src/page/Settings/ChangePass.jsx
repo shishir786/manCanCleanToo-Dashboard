@@ -108,7 +108,7 @@ const ChangePass = () => {
                 </button>
               </div>
               <Link to="/dashboard/Setting/forgotPassword">
-                <p className="underline text-end">Forgot Password?</p>
+                <p className="underline text-end mt-2">Forgot Password?</p>
               </Link>
             </div>
 

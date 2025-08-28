@@ -7,7 +7,7 @@ const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className="lg:flex min-h-screen overflow-hidden bg-[#FFFEDE]">
+    <div className="lg:flex min-h-screen overflow-hidden overscroll-none bg-[#FFFEDE]">
       {/* Sidebar */}
       {sidebarOpen && (
         <div className="lg:w-80 bg-[#FEFEFE] overflow-auto lg:fixed lg:top-0 lg:left-0 lg:bottom-0 hidden lg:block no-scrollbar">

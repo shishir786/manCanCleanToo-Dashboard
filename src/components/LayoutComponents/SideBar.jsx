@@ -119,7 +119,7 @@ const SideBar = () => {
                   className={`menu-item flex items-center cursor-pointer py-3 px-3 mx-5 transition-colors ${
                     isActive
                       ? "bg-[#013666] text-white rounded-md"
-                      : "bg-white rounded-md hover:bg-[#B3D3C8]"
+                      : "bg-white rounded-md hover:bg-blue-500/50"
                   }`}
                   onClick={(e) => {
                     if (item.children) {
