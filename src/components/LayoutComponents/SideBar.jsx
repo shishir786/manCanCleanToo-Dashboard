@@ -91,7 +91,7 @@ const SideBar = () => {
       <div className="bg-white rounded-lg shadow-md flex flex-col h-full">
         <div className="flex flex-col items-center mb-6">
           <img src={logo} alt="Logo" className="w-[139px] mt-6 h-[80px]" />
-          <h2 className="font-bold w-[233px] text-[32px] text-[#013666] text-center mt-6">
+          <h2 className="font-bold  text-[32px] text-[#013666] text-center mt-6">
             Men Can Distribute Too
           </h2>
         </div>

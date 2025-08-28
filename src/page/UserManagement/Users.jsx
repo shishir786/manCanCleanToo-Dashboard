@@ -4,10 +4,10 @@ import { IoSearch } from "react-icons/io5";
 import { HiOutlineBarsArrowDown } from "react-icons/hi2";
 import { IoIosArrowDown } from "react-icons/io";
 
-import { MdBlockFlipped, } from "react-icons/md";
+import { MdBlockFlipped } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 import PageHeading from "../../shared/PageHeading";
-import { useNavigate } from "react-router-dom";  
+import { useNavigate } from "react-router-dom";
 
 const Users = () => {
   const navigate = useNavigate();
@@ -271,7 +271,7 @@ const Users = () => {
               footer={null}
             >
               {selectedUser ? (
-                <div className="p-6 w-full max-w-md bg-white rounded-xl shadow-lg text-center">
+                <div className="p-6 w-full  max-w-md bg-white rounded-xl  text-center">
                   {/* Header */}
                   <h2 className="text-2xl font-bold text-blue-900 mb-1">
                     Distributor Details
@@ -295,7 +295,7 @@ const Users = () => {
                   </div>
 
                   {/* Details */}
-                  <div className="space-y-3 text-left mb-6">
+                  <div className="space-y-3  text-left mb-6">
                     <p>
                       <span className="font-semibold text-gray-800">Name:</span>{" "}
                       {selectedUser.userName}
@@ -354,7 +354,6 @@ const Users = () => {
                     >
                       Yes, Confirm
                     </button>
-
                   </div>
                 </div>
               )}
