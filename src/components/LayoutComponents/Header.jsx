@@ -20,25 +20,25 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
     <div className="flex w-full-20 h-[84px] justify-center items-center px-4 py-4 bg-secondary rounded-lg shadow-md mt-5 mx-5">
       <div className="flex w-full justify-between items-center ml-5">
         {/* Left Section - Menu and Welcome Message */}
-        <div className="flex items-center gap-6">
-          {/*  Menu icon  */}
-          <button
-            onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="flex items-center justify-center"
-          >
-            <FaBars className="w-8 h-8 text-primary" strokeWidth={4} />
-          </button>
+       <div className="flex items-center gap-6">
+  {/* Menu icon */}
+  <button
+    onClick={() => setSidebarOpen(!sidebarOpen)}
+    className="flex items-center justify-center"
+  >
+    <FaBars className="w-8 h-8 text-primary" strokeWidth={4} />
+  </button>
 
-          {/* Welcome Message (auto hide on small screen) */}
-          <div className="hidden md:flex flex-col min-w-0 justify-center">
-            <h1 className="text-primary font-montserrat text-lg md:text-2xl font-bold leading-tight truncate mt-5">
-              Welcome, DS
-            </h1>
-            <p className="text-primary font-montserrat text-sm font-semibold leading-relaxed truncate mt-0.5">
-              Have a nice day!
-            </p>
-          </div>
-        </div>
+  {/* Welcome Message (auto hide on small screen) */}
+  <div className="hidden md:flex flex-col min-w-0">
+    <h1 className="text-primary text-2xl font-bold leading-tight mt-6">
+      Welcome, DS
+    </h1>
+    <p className="text-primary text-sm font-semibold -mt-1">
+      Have a nice day!
+    </p>
+  </div>
+</div>
 
         {/* Right Section - icons always visible */}
         <div className="flex items-center gap-4 pr-2 shrink-0">
