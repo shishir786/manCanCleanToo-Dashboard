@@ -5,10 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Setting() {
   return (
-    <div className="bg-white shadow-lg rounded-2xl w-full-5 min-h-[40vh] overflow-hidden border border-gray-200 mx-5 mt-5">
+    <div className="bg-white shadow-lg rounded-2xl w-full-5 min-h-[82vh] overflow-hidden border border-gray-200 mx-5 mt-5">
       {/* Header */}
-      <div className="bg-[#0D2357] px-6 py-5">
-        <h2 className="text-white text-3xl font-bold">Settings</h2>
+      <div className="bg-[#0D2357] px-6 py-4">
+        <h2 className="text-white text-3xl mt-4 font-bold">Settings</h2>
       </div>
         <Link to="/dashboard/Setting/ChangePassword">
           <div className="mx-5 mt-5 px-5">

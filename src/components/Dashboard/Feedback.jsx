@@ -35,14 +35,14 @@ const Feedback = () => {
   // }, []);
 
   return (
-    <div className="bg-white shadow-lg rounded-2xl w-full-5 min-h-[40vh] overflow-hidden border border-gray-200 mx-5 mt-5">
+    <div className="bg-white shadow-lg rounded-2xl w-full-5 min-h-[82vh] overflow-hidden border border-gray-200 mx-5 mt-5">
       {/* Header */}
-      <div className="bg-[#0D2357] px-6 py-5">
-        <h2 className="text-white text-3xl font-bold">Feedback</h2>
+      <div className="bg-[#0D2357] px-6 py-4">
+        <h2 className="text-white text-3xl mt-4 font-bold">Feedback</h2>
       </div>
 
       {/* Form */}
-      <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-2xl mx-auto mt-6">
+      <div className="bg-white rounded-lg p-6 w-full max-w-2xl mx-auto mt-6">
         <h2 className="text-2xl font-bold text-[#013666] mb-4">
           User Feedback
         </h2>

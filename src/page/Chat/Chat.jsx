@@ -1,285 +1,309 @@
-// import { useState } from "react";
-// import { FaCheck } from "react-icons/fa";
-// import { FiMoreVertical } from "react-icons/fi";
-// import { IoSend } from "react-icons/io5";
-// import { LuFileText } from "react-icons/lu";
-// import PageHeading from "../../shared/PageHeading";
-// function Chat() {
-//   const [input, setInput] = useState("");
-//   const [messages, setMessages] = useState([
-//     {
-//       id: "1",
-//       content:
-//         "Hello! Finally found the time to write to you:) I need your help in creating interactive animations for my mobile application.",
-//       sender: "contact",
-//       timestamp: "4 days ago",
-//     },
-//     {
-//       id: "2",
-//       content: "Can I send you files?",
-//       sender: "contact",
-//       timestamp: "4 days ago",
-//     },
-//     {
-//       id: "3",
-//       content: "Hey! Okay, send out.",
-//       sender: "user",
-//       timestamp: "4 days ago",
-//     },
-//     {
-//       id: "4",
-//       content: "",
-//       sender: "contact",
-//       timestamp: "4 days ago",
-//       file: {
-//         name: "Style.zip",
-//         size: "41.36 MB",
-//       },
-//     },
-//     {
-//       id: "5",
-//       content:
-//         "Hello! I tweaked everything you asked. I am sending the finished file.",
-//       sender: "user",
-//       timestamp: "3 days ago",
-//       file: {
-//         name: "NEW_Style.zip",
-//         size: "52.05 MB",
-//       },
-//     },
-//   ]);
+import React, { useState, useRef, useEffect } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
+import { RiSendPlane2Fill } from "react-icons/ri";
+import { FiMenu, FiMoreVertical } from "react-icons/fi";
+import { IoImagesOutline, IoCheckmarkDone } from "react-icons/io5";
+import { BsEmojiSmile } from "react-icons/bs";
 
-//   const handleSendMessage = (e) => {
-//     e.preventDefault();
-//     if (input.trim()) {
-//       setMessages([
-//         ...messages,
-//         {
-//           id: Date.now().toString(),
-//           content: input,
-//           sender: "user",
-//           timestamp: "Just now",
-//         },
-//       ]);
-//       setInput("");
-//     }
-//   };
-
-//   return (
-//     <>
-//       <div className="my-5 flex justify-start items-center">
-//         <PageHeading title="Chat" />
-//       </div>
-//       <div className="flex justify-center items-center">
-//         <div className="flex h-screen max-w-3xl flex-col">
-//           {/* Header */}
-//           <div className="border-b p-4">
-//             <div className="flex items-center gap-3">
-//               <img
-//                 src="https://avatar.iran.liara.run/public/20"
-//                 alt="Profile"
-//                 width={40}
-//                 height={40}
-//                 className="rounded-full object-cover"
-//               />
-
-//               <div>
-//                 <h2 className="font-medium">Nika Jerrardo</h2>
-//                 <p className="text-xs text-orange-500">
-//                   last online 5 hours ago
-//                 </p>
-//               </div>
-//             </div>
-//           </div>
-
-//           {/* Chat Messages */}
-//           <div className="flex-1 p-5">
-//             <div className="space-y-4">
-//               {messages.map((message) => (
-//                 <div
-//                   key={message.id}
-//                   className={`flex ${
-//                     message.sender === "user" ? "justify-end" : "justify-start"
-//                   }`}
-//                 >
-//                   {message.sender === "contact" && (
-//                     <div className="mr-2 mt-1">
-//                       <img
-//                         src="https://avatar.iran.liara.run/public/21"
-//                         alt="Contact"
-//                         width={32}
-//                         height={32}
-//                         className="rounded-full object-cover"
-//                       />
-//                     </div>
-//                   )}
-//                   <div className="">
-//                     <div
-//                       className={`relative rounded-lg p-3 ${
-//                         message.sender === "user"
-//                           ? "bg-white text-gray-800"
-//                           : "bg-orange-400 text-white"
-//                       }`}
-//                     >
-//                       {message.content && <p>{message.content}</p>}
-
-//                       {message.file && (
-//                         <div
-//                           className={`mt-2 flex items-center rounded-md ${
-//                             message.sender === "user"
-//                               ? "bg-gray-100"
-//                               : "bg-orange-300"
-//                           } p-2`}
-//                         >
-//                           <LuFileText className="mr-2 h-5 w-5" />
-//                           <div className="flex-1">
-//                             <p className="text-sm font-medium">
-//                               {message.file.name}
-//                             </p>
-//                             <p className="text-xs">{message.file.size}</p>
-//                           </div>
-//                           {message.sender === "user" && (
-//                             <div className="ml-2 rounded-full bg-white p-1">
-//                               <FaCheck className="h-4 w-4 text-green-500" />
-//                             </div>
-//                           )}
-//                         </div>
-//                       )}
-
-//                       <button
-//                         className="absolute -right-10 top-0 h-8 w-8 text-gray-400"
-//                         style={{ background: "none", border: "none" }}
-//                       >
-//                         <FiMoreVertical className="h-4 w-4" />
-//                       </button>
-//                     </div>
-//                     <div className="mt-1 text-right text-xs text-gray-500">
-//                       {message.timestamp}
-//                     </div>
-//                   </div>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-
-//           {/* Message Input */}
-//           <div className="border-t p-4">
-//             <form
-//               onSubmit={handleSendMessage}
-//               className="flex items-center gap-2"
-//             >
-//               <input
-//                 type="text"
-//                 value={input}
-//                 onChange={(e) => setInput(e.target.value)}
-//                 placeholder="Type a message here"
-//                 className="flex-1 p-2 border rounded"
-//               />
-//               <button
-//                 type="submit"
-//                 className="h-10 w-10 rounded-full bg-orange-400 text-white hover:bg-orange-500"
-//               >
-//                 <IoSend className="h-5 w-5 ml-2.5" />
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default Chat;
-
-import React from "react";
+const users = [
+    {
+        id: 1,
+        name: "John Smith",
+        message: "Interested in your plate listing",
+        time: "2:45 PM",
+        avatar: "https://avatar.iran.liara.run/public/28",
+        online: true,
+        unread: 2
+    },
+    {
+        id: 2,
+        name: "Sarah Johnson",
+        message: "Is the plate still available?",
+        time: "1:30 PM",
+        avatar: "https://avatar.iran.liara.run/public/27",
+        online: false,
+        unread: 0
+    },
+    {
+        id: 3,
+        name: "Mike Wilson",
+        message: "Thanks for the quick response!",
+        time: "12:15 PM",
+        avatar: "https://avatar.iran.liara.run/public/29",
+        online: true,
+        unread: 1
+    },
+    {
+        id: 4,
+        name: "Emma Davis",
+        message: "Can we arrange a viewing?",
+        time: "11:45 AM",
+        avatar: "https://avatar.iran.liara.run/public/30",
+        online: false,
+        unread: 0
+    },
+    {
+        id: 5,
+        name: "Alex Brown",
+        message: "What's your best price?",
+        time: "Yesterday",
+        avatar: "https://avatar.iran.liara.run/public/31",
+        online: false,
+        unread: 3
+    }
+];
 
 const Chat = () => {
-  return (
+    const [selectedUser, setSelectedUser] = useState(users[0]);
+    const [activeTab, setActiveTab] = useState("Buyers");
+    const [messages, setMessages] = useState([
+        {
+            text: "Hi! I'm interested in your plate listing. Is it still available?",
+            sender: "them",
+            time: "2:30 PM",
+            read: true
+        },
 
-    <div className="bg-white shadow-lg rounded-2xl w-full-5 min-h-[40vh] overflow-hidden border border-gray-200 mx-5 mt-5">
-      <div className="flex h-screen bg-white">
-      {/* Sidebar */}
-      <div className="w-1/4 border-r border-gray-200">
-        <div className="overflow-y-auto">
-          {[1, 2, 3, 4, 5].map((i, idx) => (
-            <div
-              key={idx}
-              className={`flex items-center p-3 cursor-pointer hover:bg-gray-100 ${
-                idx === 1 ? "bg-blue-100" : ""
-              }`}
-            >
-              <img
-                src={`https://i.pravatar.cc/40?img=${i}`}
-                alt="avatar"
-                className="w-10 h-10 rounded-full"
-              />
-              <div className="ml-3 flex-1">
-                <h4 className="font-semibold text-sm">Ellie Smith</h4>
-                <p className="text-xs text-gray-500">Handyman, Phoenix</p>
-              </div>
-              <span className="text-xs text-gray-400">11:04</span>
-            </div>
-          ))}
-        </div>
-      </div>
+        {
+            text: "It's in excellent condition, no visible damage. I can send more photos if you'd like.",
+            sender: "me",
+            time: "2:37 PM",
+            read: true
+        },
+        {
+            text: "That would be great! Also, are you flexible on the price?",
+            sender: "them",
+            time: "2:40 PM",
+            read: false
+        }
+    ]);
+    const [newMessage, setNewMessage] = useState("");
+    const [showSidebar, setShowSidebar] = useState(false);
+    const messagesEndRef = useRef(null);
+    const fileInputRef = useRef(null);
 
-      {/* Chat Window */}
-      <div className="flex-1 flex flex-col">
-        {/* Header */}
-        <div className="flex items-center p-4 border-b border-gray-200">
-          <span className="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
-          <h3 className="font-semibold">Alexandra Broke</h3>
-        </div>
+    const sendMessage = () => {
+        if (newMessage.trim()) {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-        {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
-          {/* Received */}
-          <div>
-            <span className="block text-xs text-gray-400 mb-1">10:16</span>
-            <div className="inline-block bg-blue-900 text-white px-4 py-2 rounded-2xl max-w-xs">
-              Vel et commodo et scelerisque aliquam. Sed libero, non praesent felis, sem eget venenatis neque.
-              Massa tincidunt tempor a nisl eu mauris lectus.
-            </div>
-            <img
-              src="https://via.placeholder.com/120x80"
-              alt="attachment"
-              className="mt-2 rounded-lg"
-            />
-          </div>
+            setMessages([
+                ...messages,
+                { text: newMessage, sender: "me", time: timeString, read: true },
+            ]);
+            setNewMessage("");
+        }
+    };
 
-          {/* Sent */}
-          <div className="text-right">
-            <span className="block text-xs text-gray-400 mb-1">11:04</span>
-            <div className="inline-block bg-blue-900 text-white px-4 py-2 rounded-2xl max-w-xs">
-              Ok lets do it!
-            </div>
-          </div>
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage();
+        }
+    };
 
-          {/* Received */}
-          <div>
-            <span className="block text-xs text-gray-400 mb-1">12:37</span>
-            <div className="inline-block bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl max-w-xs">
-              Donec lobortis mattis pellentesque nisl nibh eu.
-            </div>
-          </div>
+    const handleFileUpload = () => {
+        fileInputRef.current?.click();
+    };
+
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [messages]);
+
+    return (
+      <div className="flex flex-col h-[100vh] bg-white mx-5 ">
+        <div className="p-5 border-b border-gray-200">
+          <h1 className="text-[#3c3d37] text-start text-3xl font-bold mb-4">
+            Messages
+          </h1>
         </div>
 
-        {/* Input */}
-        <div className="p-3 flex items-center border-t border-gray-200">
-          <button className="p-2 text-gray-500">📷</button>
-          <input
-            type="text"
-            placeholder="Type a message..."
-            className="flex-1 px-3 py-2 border rounded-full mx-2 focus:outline-none focus:ring-1 focus:ring-blue-400"
+        {/* Header for Mobile */}
+        <div className="flex items-center justify-between p-4 bg-[#3c3d37] text-white md:hidden shadow-sm">
+          <FiMenu
+            className="text-2xl cursor-pointer hover:text-yellow-400 transition-colors"
+            onClick={() => setShowSidebar(!showSidebar)}
           />
-          <button className="p-2 text-blue-500">➤</button>
+          <h1 className="text-xl font-bold">Messages</h1>
+          <div className="w-6"></div> {/* Spacer for centering */}
+        </div>
+
+        <div className="flex h-screen  flex-1">
+          {/* Sidebar - User List */}
+          <div
+            className={`absolute md:relative   top-0 left-0 w-80 md:w-96  bg-white flex flex-col border-r border-gray-200 transition-transform duration-300
+    ${showSidebar ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
+          >
+            <div className="p-4">
+              <button
+                className="md:hidden self-end mb-4 text-gray-500 hover:text-gray-700 float-right"
+                onClick={() => setShowSidebar(false)}
+              >
+                ✖
+              </button>
+              {/* <div className="relative">
+                            <AiOutlineSearch
+                                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Search conversations..."
+                                className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                            />
+                        </div> */}
+            </div>
+            <div className=" h-screen flex-1">
+              {users.map((user) => (
+                <div
+                  key={user.id}
+                  className={`flex items-center gap-3 p-4 cursor-pointer border-b border-gray-100 hover:bg-gray-50 transition-colors ${
+                    selectedUser.id === user.id
+                      ? "bg-yellow-50 border-r-4 border-yellow-400"
+                      : ""
+                  }`}
+                  onClick={() => {
+                    setSelectedUser(user);
+                    if (window.innerWidth < 768) setShowSidebar(false);
+                  }}
+                >
+                  <div className="relative">
+                    <img
+                      src={user.avatar}
+                      alt={user.name}
+                      className="h-12 w-12 rounded-full object-cover"
+                    />
+                    {user.online && (
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex justify-between items-start">
+                      <h3 className="text-sm font-semibold text-gray-900 truncate">
+                        {user.name}
+                      </h3>
+                      <span className="text-xs text-gray-500 ml-2">
+                        {user.time}
+                      </span>
+                    </div>
+                    <p className="text-sm text-gray-600 truncate mt-1">
+                      {user.message}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Main Chat Area */}
+          <div className="flex-1 flex flex-col">
+            {/* Chat Header */}
+            <div className="px-6 py-4 sticky top-0 bg-white border-b border-gray-200 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <img
+                    src={selectedUser.avatar}
+                    alt={selectedUser.name}
+                    className="h-12 w-12 rounded-full object-cover"
+                  />
+                  {selectedUser.online && (
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+                  )}
+                </div>
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-900">
+                    {selectedUser.name}
+                  </h2>
+                  <p className="text-sm text-gray-500">
+                    {selectedUser.online
+                      ? "Online"
+                      : "Last seen " + selectedUser.time}
+                  </p>
+                </div>
+              </div>
+              <button className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                <FiMoreVertical className="w-5 h-5 text-gray-500" />
+              </button>
+            </div>
+
+            {/* Messages Area */}
+            <div className="flex-1 overflow-y-scroll bg-gray-50 p-4 space-y-4">
+              {messages.map((msg, i) => (
+                <div
+                  key={i}
+                  className={`flex ${
+                    msg.sender === "me" ? "justify-end" : "justify-start"
+                  }`}
+                >
+                  <div
+                    className={`max-w-xs lg:max-w-md xl:max-w-lg rounded-2xl p-4 ${
+                      msg.sender === "me"
+                        ? "bg-[#00823b] text-white"
+                        : "bg-white text-gray-900 shadow-sm border border-gray-200"
+                    }`}
+                  >
+                    <p className="text-sm leading-relaxed">{msg.text}</p>
+                    <div className="flex items-center justify-between mt-2">
+                      <p className="text-xs opacity-70">{msg.time}</p>
+                      {msg.sender === "me" && (
+                        <IoCheckmarkDone
+                          className={`w-4 h-4 ${
+                            msg.read ? "text-blue-500" : "text-gray-400"
+                          }`}
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+              <div ref={messagesEndRef} />
+            </div>
+            {/* Message Input */}
+            <div className="p-4 bg-white border-t border-gray-200">
+              <div className="flex items-end gap-3">
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  className="hidden"
+                  accept="image/*,application/pdf"
+                  onChange={(e) =>
+                    console.log("File selected:", e.target.files[0])
+                  }
+                />
+                <button
+                  onClick={handleFileUpload}
+                  className="p-3 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors"
+                  title="Attach file"
+                >
+                  <IoImagesOutline className="w-5 h-5 text-gray-600" />
+                </button>
+                <div className="flex-1 relative">
+                  <input
+                    type="text"
+                    value={newMessage}
+                    onChange={(e) => setNewMessage(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    placeholder="Type your message..."
+                    className="w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent resize-none"
+                  />
+                </div>
+                <button
+                  onClick={sendMessage}
+                  disabled={!newMessage.trim()}
+                  className={`p-3 rounded-full transition-colors ${
+                    newMessage.trim()
+                      ? "bg-yellow-400 hover:bg-yellow-500 text-gray-900"
+                      : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  }`}
+                  title="Send message"
+                >
+                  <RiSendPlane2Fill className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-    </div>
-
-  );
+    );
 };
 
 export default Chat;

@@ -22,7 +22,7 @@ function ProfilePage() {
                   className="h-30 w-32 rounded-full"
                 />
                 {/* Upload Icon */}
-                <div className="absolute bottom-2 right-2 bg-white p-2 rounded-full shadow-md cursor-pointer">
+                <div className="absolute bottom-0 right-2 bg-white p-2 rounded-full shadow-md cursor-pointer">
                   <label htmlFor="profilePicUpload" className="cursor-pointer">
                     <Edit className="text-[#FF914C]" />
                   </label>

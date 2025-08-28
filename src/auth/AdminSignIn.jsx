@@ -23,8 +23,8 @@ function AdminSignIn() {
   return (
     <div className="bg-white shadow-lg rounded-2xl w-full-5 min-h-[40vh] overflow-hidden border border-gray-200 mx-5 mt-5">
       {/* Header */}
-      <div className="bg-[#0D2357] px-6 py-5">
-        <h2 className="text-white text-3xl font-bold">Create Admin</h2>
+      <div className="bg-[#0D2357] px-6 py-4">
+        <h2 className="text-white text-3xl mt-4 font-bold">Create Admin</h2>
       </div>
 
       {/* Form */}

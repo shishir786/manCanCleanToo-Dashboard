@@ -22,7 +22,7 @@ const DashboardLayout = () => {
         }`}
       >
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-        <div className=" bg-[#FFFEDE] min-h-screen w-full">
+        <div className="mt-36 bg-[#FFFEDE] min-h-screen w-full">
           <Outlet />
         </div>
       </div>
