@@ -14,6 +14,9 @@ function ForgetPassword() {
         <h2 className="text-[48px] font-semibold  text-[#001C54]">
           Men Can Distribute Too
         </h2>
+        <div className="max-w-xl items-center mx-auto mt-5">
+
+
         <form className="space-y-5">
           <h1 className="text-sm font-normal text-gray-600 text-start">
             Enter your email address to ger a verification code for resetting
@@ -45,6 +48,7 @@ function ForgetPassword() {
             </button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   );
