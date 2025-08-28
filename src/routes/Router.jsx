@@ -8,12 +8,16 @@ import Dashboard from "../components/Dashboard/Dashboard";
 import DashboardLayout from "../layout/DashboardLayout";
 import CategoryManagement from "../page/CategoryManagement/CategoryManagement";
 import Chat from "../page/Chat/Chat";
-import Notification from "../page/Notification/Notification";
-import SellerManagement from "../page/sellerManagement/SellerManagement";
-import Profile from "../page/Settings/Profile";
 import Subscription from "../page/subscription/Subscription";
 import Users from "../page/UserManagement/Users";
 import BlockedUser from "../page/BlockedUser/BlockedUser";
+import Setting from "../page/Settings/Setting";
+import ChangePass from "../page/Settings/ChangePass";
+import PrivacyPolicy from "./../page/Settings/PrivacyPolicy";
+import TermsAndCondition from "./../page/Settings/TermsCondition";
+import AboutUs from "../page/Settings/AboutUs";
+import ForgotPassword from "./../page/Settings/ForgotPassword";
+import VerifyOtp from "./../page/Settings/VerifyOtp";
 
 export const router = createBrowserRouter([
   {
@@ -43,12 +47,32 @@ export const router = createBrowserRouter([
       },
 
       {
-        path: "/dashboard/Settings/profile",
-        element: <Profile />,
+        path: "/dashboard/Setting",
+        element: <Setting />,
       },
       {
-        path: "/dashboard/Settings/notification",
-        element: <Notification />,
+        path: "/dashboard/Setting/changePassword",
+        element: <ChangePass />,
+      },
+      {
+        path: "/dashboard/Setting/privacyPolicy",
+        element: <PrivacyPolicy />,
+      },
+      {
+        path: "/dashboard/Setting/tramsAndCondition",
+        element: <TermsAndCondition />,
+      },
+      {
+        path: "/dashboard/Setting/forgotPassword",
+        element: <ForgotPassword />,
+      },
+      {
+        path: "/dashboard/Setting/verifyOtp",
+        element: <VerifyOtp />,
+      },
+      {
+        path: "/dashboard/Setting/aboutUs",
+        element: <AboutUs />,
       },
 
       {
@@ -59,7 +83,6 @@ export const router = createBrowserRouter([
         path: "/dashboard/Settings/chat",
         element: <Chat />,
       },
-
     ],
   },
   {

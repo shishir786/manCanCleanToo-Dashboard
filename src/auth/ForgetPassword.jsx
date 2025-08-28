@@ -7,7 +7,7 @@ function ForgetPassword() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-white p-5">
-      <div className="bg-white relative  rounded-2xl px-5 py-20 w-full max-w-xl text-center">
+      <div className="bg-white relative  rounded-2xl px-5 py-20 w-full max-w-2xl text-center">
         <div className="flex justify-center ">
           <img className="w-[208px] h-[120px]" src={LoginLogo} alt="LOgo" />
         </div>

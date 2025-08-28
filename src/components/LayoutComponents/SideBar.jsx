@@ -36,7 +36,7 @@ export const AdminItems = [
     key: "settings",
     label: "Settings",
     icon: FaCog,
-    link: "#",
+    link: "/dashboard/Setting",
   },
 ];
 

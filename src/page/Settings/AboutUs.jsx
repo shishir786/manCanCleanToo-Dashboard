@@ -6,7 +6,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { CiEdit } from "react-icons/ci";
 import PageHeading from "../../shared/PageHeading";
 
-const Faq = () => {
+const AboutUs = () => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [addModalOpen, setAddModalOpen] = useState(false);
@@ -292,4 +292,4 @@ const Faq = () => {
   );
 };
 
-export default Faq;
+export default AboutUs;
