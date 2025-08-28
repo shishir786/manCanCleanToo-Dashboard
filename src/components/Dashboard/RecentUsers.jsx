@@ -72,6 +72,26 @@ const RecentUsers = () => {
       userType: "User",
       joinedDate: "2023-09-18",
     },
+    {
+      key: "6",
+      sId: "S005",
+      fullName: "Bob Brown",
+      email: "bobb@example.com",
+      phoneNo: "567-890-1234",
+      typeOfTest: "Blood Pressure",
+      userType: "User",
+      joinedDate: "2023-09-18",
+    },
+    {
+      key: "7",
+      sId: "S005",
+      fullName: "Bob Brown",
+      email: "bobb@example.com",
+      phoneNo: "567-890-1234",
+      typeOfTest: "Blood Pressure",
+      userType: "User",
+      joinedDate: "2023-09-18",
+    },
   ];
 
   const columns = [
@@ -106,15 +126,15 @@ const RecentUsers = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={showModal}
-            className="  text-[#082513] rounded-lg p-2  hover:bg-teal-400 transition duration-200"
+            className="text-[#013666] rounded-lg p-2 hover:bg-[#013666] hover:text-white transition duration-200"
           >
             <MdBlockFlipped className="w-6 h-6 text-red-400 hover:text-black" />
           </button>
           <button
             onClick={() => showUserDetails(record)}
-            className="  text-blue-500 rounded-lg p-2  hover:bg-blue-400 transition duration-200"
+            className="text-[#013666] rounded-lg p-2 hover:bg-[#013666] hover:text-white transition duration-200"
           >
-            <FaEye className="w-6 h-6 text-blue-600" />
+            <FaEye className="w-6 h-6 text-[#013666]" />
           </button>
         </div>
       ),
@@ -127,20 +147,20 @@ const RecentUsers = () => {
         theme={{
           components: {
             InputNumber: {
-              activeBorderColor: "#14803c",
+              activeBorderColor: "#013666",
             },
             Pagination: {
-              colorPrimaryBorder: "rgb(19,194,194)",
-              colorBorder: "rgb(82,196,26)",
-              colorTextPlaceholder: "rgb(82,196,26)",
-              colorTextDisabled: "rgb(82,196,26)",
-              colorBgTextActive: "rgb(82,196,26)",
-              itemActiveBgDisabled: "rgb(82,196,26)",
-              itemActiveColorDisabled: "rgb(0,0,0)",
-              itemBg: "rgb(82,196,26)",
-              colorBgTextHover: "rgb(82,196,26)",
-              colorPrimary: "rgb(82,196,26)",
-              colorPrimaryHover: "rgb(82,196,26)",
+              colorPrimaryBorder: "#013666",
+              colorBorder: "#013666",
+              colorTextPlaceholder: "#013666",
+              colorTextDisabled: "#013666",
+              colorBgTextActive: "#013666",
+              itemActiveBgDisabled: "#013666",
+              itemActiveColorDisabled: "#013666",
+              itemBg: "#013666",
+              colorBgTextHover: "#013666",
+              colorPrimary: "#013666",
+              colorPrimaryHover: "#013666",
             },
             Table: {
               headerBg: "#001c54",
@@ -154,7 +174,7 @@ const RecentUsers = () => {
         <Table
           dataSource={dataSource}
           columns={columns}
-          pagination={{ pageSize: 10 }}
+          pagination={{ pageSize: 5 }}
           scroll={{ x: "max-content" }}
         />
 
@@ -185,7 +205,7 @@ const RecentUsers = () => {
               </p>
               <button
                 onClick={handleOk}
-                className="mt-5 bg-[#14803c] text-white font-semibold w-full py-2 rounded transition duration-200"
+                className="mt-5 bg-[#013666] text-white font-semibold w-full py-2 rounded transition duration-200"
               >
                 Close
               </button>
@@ -198,7 +218,7 @@ const RecentUsers = () => {
               <div className="text-center py-5">
                 <button
                   onClick={handleOk}
-                  className="bg-[#14803c] text-white font-semibold w-full py-2 rounded transition duration-200"
+                  className="bg-[#013666] text-white font-semibold w-full py-2 rounded transition duration-200"
                 >
                   Yes, Block
                 </button>
@@ -206,7 +226,7 @@ const RecentUsers = () => {
               <div className="text-center pb-5">
                 <button
                   onClick={handleOk}
-                  className="text-[#14803c] border-2 border-green-600 bg-white font-semibold w-full py-2 rounded transition duration-200"
+                  className="text-[#013666] border-2 border-[#013666] bg-white font-semibold w-full py-2 rounded transition duration-200"
                 >
                   No, Don’t Block
                 </button>
