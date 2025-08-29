@@ -1,10 +1,8 @@
-import { useState } from "react";
 import "antd/dist/reset.css";
+import { useState } from "react";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import PageHeading from './../../shared/PageHeading';
-
-
+import PageHeading from "../shared/PageHeading";
 
 const ChangePass = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,12 +19,12 @@ const ChangePass = () => {
   };
   return (
     <div>
-      <div className="rounded-t-lg mt-5 rounded-b-none bg-[#013666] text-white py-3  flex flex-row justify-between items-center mx-5 px-5">
+      <div className="rounded-t-lg mt-5 rounded-b-none bg-[#013666] text-white py-3 flex flex-row justify-between items-center mx-5 max-md:mx-3 px-5 max-md:px-3">
         <PageHeading title="Change Password" />
       </div>
-      <div className="mx-5 px-5 flex justify-center items-center min-h-screen bg-white p-5">
-        <div className="bg-white  relative rounded-2xl px-5  w-full max-w-2xl text-center">
-          <form className="space-y-5">
+      <div className="mx-5 max-md:mx-3 px-5 max-md:px-3 bg-white rounded-b-lg">
+        <div className="bg-white relative px-5 max-md:px-3 py-10 max-md:py-6 w-full max-w-2xl mx-auto">
+          <form className="space-y-5 max-md:space-y-4">
             <div className="w-full">
               <label className="text-xl text-gray-800 mb-2 flex justify-start text-start">
                 Current Password
@@ -44,10 +42,10 @@ const ChangePass = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 bottom-4 flex items-center text-[#001C54]"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center text-[#001C54]"
                 >
                   {showPassword ? (
-                    <IoEyeOffOutline className="w-5 h-5 [text-[#FF914C]" />
+                    <IoEyeOffOutline className="w-5 h-5 text-[#FF914C]" />
                   ) : (
                     <IoEyeOutline className="w-5 h-5 text-[#001C54]" />
                   )}
@@ -71,10 +69,10 @@ const ChangePass = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 bottom-4 flex items-center text-[#001C54]"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center text-[#001C54]"
                 >
                   {showPassword ? (
-                    <IoEyeOffOutline className="w-5 h-5 [text-[#FF914C]" />
+                    <IoEyeOffOutline className="w-5 h-5 text-[#FF914C]" />
                   ) : (
                     <IoEyeOutline className="w-5 h-5 text-[#001C54]" />
                   )}
@@ -98,7 +96,7 @@ const ChangePass = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 bottom-4 flex items-center text-gray-400"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center text-[#001C54]"
                 >
                   {showPassword ? (
                     <IoEyeOffOutline className="w-5 h-5 text-[#001C54]" />
@@ -107,18 +105,15 @@ const ChangePass = () => {
                   )}
                 </button>
               </div>
-              <Link to="/dashboard/Setting/forgotPassword">
-                <p className="underline text-end mt-2">Forgot Password?</p>
-              </Link>
             </div>
 
-            <Link to="/login">
+            <Link to="/">
               <div className="flex justify-center items-center text-white">
                 <button
                   type="submit"
                   className="w-full bg-[#001C54] font-semibold py-3 px-6 rounded-lg shadow-lg cursor-pointer mt-5"
                 >
-                  Sign In
+                  Save
                 </button>
               </div>
             </Link>

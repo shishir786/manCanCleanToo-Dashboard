@@ -32,38 +32,38 @@ function DashboardPage() {
   };
 
   return (
-    <div className="flex flex-col mt-10 px-5">
+    <div className="flex flex-col mt-10 max-md:mt-5 px-3 ipad:px-5">
       {/* upper 2 blocks */}
       <div
-        className="w-full flex bg-white rounded-lg shadow-sm items-center justify-center border border-[#E2E8F0]"
+        className="w-full flex bg-white rounded-lg shadow-sm items-center justify-center border border-[#E2E8F0] max-md:py-4"
         style={{ minHeight: "110px" }}
       >
         <div className="flex-1 flex flex-col items-center justify-center">
-          <p className="text-[#0D2357] text-3xl md:text-4xl font-bold mb-2">
+          <p className="text-[#0D2357] text-2xl ipad:text-3xl lg:text-4xl max-md:text-xl font-bold mb-2 max-md:mb-1">
             7.8k
           </p>
-          <span className="text-[#0D2357] text-base md:text-lg font-medium">
+          <span className="text-[#0D2357] text-sm ipad:text-base lg:text-lg max-md:text-xs font-medium text-center max-md:px-2">
             Total Distributor
           </span>
         </div>
-        <div className="w-px h-16 bg-[#F4B057] mx-8" />
+        <div className="w-px h-16 max-md:h-12 bg-[#F4B057] mx-4 ipad:mx-8 max-md:mx-3" />
         <div className="flex-1 flex flex-col items-center justify-center">
-          <p className="text-[#0D2357] text-3xl md:text-4xl font-bold mb-2">
+          <p className="text-[#0D2357] text-2xl ipad:text-3xl lg:text-4xl max-md:text-xl font-bold mb-2 max-md:mb-1">
             249
           </p>
-          <span className="text-[#0D2357] text-base md:text-lg font-medium">
+          <span className="text-[#0D2357] text-sm ipad:text-base lg:text-lg max-md:text-xs font-medium text-center max-md:px-2">
             Total Employer
           </span>
         </div>
       </div>
       {/* User Ratio Section */}
-      <div className="w-full gap-5 mt-5 ">
-        <div className="w-full p-5 bg-[#FFFFFF] rounded-lg shadow-md">
-          <div className="flex flex-col md:flex-row md:justify-between lg:justify-between items-center gap-5 my-5">
+      <div className="w-full gap-5 mt-5">
+        <div className="w-full p-5 max-md:p-4 bg-[#FFFFFF] rounded-lg shadow-md">
+          <div className="flex flex-col ipad:flex-row ipad:justify-between lg:justify-between items-center gap-5 my-5 max-md:my-3 max-md:items-start">
             <div>
-              <h1 className="text-xl font-semibold">User Ratio</h1>
+              <h1 className="text-lg ipad:text-xl max-md:text-base font-semibold">User Ratio</h1>
             </div>
-            <div className="relative w-full md:w-32">
+            <div className="relative w-full ipad:w-32 max-md:w-full">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md flex justify-between items-center bg-white transition"
@@ -95,7 +95,7 @@ function DashboardPage() {
       </div>
 
       <div className="mt-5">
-        <h1 className="text-2xl font-bold mb-5">Recent Users</h1>
+        <h1 className="text-2xl max-md:text-xl font-bold mb-5 max-md:mb-4 max-md:px-1">Recent Users</h1>
         <RecentUsers showModal={showModal} />
       </div>
       <Modal open={isModalOpen} centered onCancel={handleCancel} footer={null}>

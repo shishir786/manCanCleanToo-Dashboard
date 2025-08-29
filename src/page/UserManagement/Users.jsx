@@ -205,41 +205,41 @@ const Users = () => {
   return (
     <>
       <div>
-        <div className="rounded-t-lg mt-5 rounded-b-none bg-[#013666] text-white py-3  flex flex-row justify-between items-center mx-5 px-5">
+        <div className="rounded-t-lg mt-5 rounded-b-none bg-[#013666] text-white py-3 flex flex-col ipad:flex-row justify-between items-start ipad:items-center mx-5 max-md:mx-3 px-5 max-md:px-3 gap-4 ipad:gap-0">
           <PageHeading title="User List" />
-          <div className="flex items-center gap-[100px]">
-            <div className="relative w-full sm:w-[300px]">
-              <div className="flex items-center ">
+          <div className="flex flex-col ipad:flex-row items-center gap-4 ipad:gap-[50px] w-full ipad:w-auto max-md:items-start max-md:gap-3">
+            <div className="relative w-full ipad:w-[300px] max-md:w-full">
+              <div className="flex items-center">
                 <input
                   type="text"
                   placeholder="Search User"
-                  className="border-2 py-2 pl-10 pr-4 text-black outline-none w-full rounded-md "
+                  className="border-2 py-2 pl-10 pr-4 text-black outline-none w-full rounded-md max-md:text-sm"
                 />
                 <span className="text-gray-400 absolute top-0 left-0 h-full px-3 flex items-center justify-center">
-                  <IoSearch className="text-[1.3rem]" />
+                  <IoSearch className="text-[1.3rem] max-md:text-[1.1rem]" />
                 </span>
               </div>
             </div>
             <button
               onClick={openBlockedUsersModal}
-              className="bg-white text-[#013666] py-2 px-6 rounded-md hover:bg-gray-100 focus:outline-none"
+              className="bg-white text-[#013666] py-2 px-4 ipad:px-6 rounded-md hover:bg-gray-100 focus:outline-none whitespace-nowrap text-sm ipad:text-base max-md:font-medium"
             >
               Blocked Users
             </button>
           </div>
         </div>
-        <div className="mx-5 ">
-          <div className="bg-white py-3  flex flex-row justify-between items-center px-5 border border-t-0 border-x-0 border-gray-300">
-            <div className="flex gap-3">
-              <button className="border border-blue-600/50 text-black hover:text-white bg-white hover:bg-[#001C54] py-2 px-6 rounded-md focus:outline-none">
+        <div className="mx-5 max-md:mx-3">
+          <div className="bg-white py-3 flex flex-col ipad:flex-row justify-between items-start ipad:items-center px-5 max-md:px-3 border border-t-0 border-x-0 border-gray-300 gap-3 ipad:gap-0">
+            <div className="flex gap-3 w-full ipad:w-auto">
+              <button className="border border-blue-600/50 text-black hover:text-white bg-white hover:bg-[#001C54] py-2 px-4 ipad:px-6 max-md:px-3 rounded-md focus:outline-none text-sm ipad:text-base">
                 Clients
               </button>
-              <button className="border border-blue-600/50 text-white hover:text-black bg-[#001C54] hover:bg-white py-2 px-6 rounded-md focus:outline-none">
+              <button className="border border-blue-600/50 text-white hover:text-black bg-[#001C54] hover:bg-white py-2 px-4 ipad:px-6 max-md:px-3 rounded-md focus:outline-none text-sm ipad:text-base">
                 Providers
               </button>
             </div>
-            <div className="flex flex-col justify-between items-center text-center sm:flex-row gap-3 border p-2 border-gray-500 sm:gap-5">
-              <div className="flex items-center justify-between  text-center gap-3">
+            <div className="flex flex-col justify-between items-center text-center ipad:flex-row gap-3 border p-2 border-gray-500 ipad:gap-5">
+              <div className="flex items-center justify-between text-center gap-3">
                 <HiOutlineBarsArrowDown size={21} />
                 <h2 className="mt-2">date</h2>
               </div>
@@ -249,7 +249,7 @@ const Users = () => {
             </div>
           </div>
         </div>
-        <div className="mx-5 rounded-b-lg ">
+        <div className="mx-5 max-md:mx-3 rounded-b-lg max-md:overflow-x-auto">
           <ConfigProvider
             theme={
               {

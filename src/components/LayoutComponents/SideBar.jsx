@@ -99,11 +99,11 @@ const SideBar = () => {
   };
 
   return (
-    <div className="h-screen p-6 bg-[#FFFEDE] rounded-md flex flex-col">
+    <div className="h-screen p-6 max-md:p-4 bg-[#FFFEDE] rounded-md flex flex-col">
       <div className="bg-white rounded-lg shadow-md flex flex-col h-full">
-        <div className="flex flex-col items-center mb-6">
-          <img src={logo} alt="Logo" className="w-[139px] mt-6 h-[80px]" />
-          <h2 className="font-bold text-[32px] text-[#013666] text-center mt-6">
+        <div className="flex flex-col items-center mb-6 max-md:mb-4">
+          <img src={logo} alt="Logo" className="w-[139px] mt-6 h-[80px] max-md:w-24 max-md:h-14 max-md:mt-3" />
+          <h2 className="font-bold text-[32px] max-md:text-lg text-[#013666] text-center mt-6 max-md:mt-3 max-md:px-2">
             Men Can Distribute Too
           </h2>
         </div>
@@ -116,7 +116,8 @@ const SideBar = () => {
               <div key={item.key} className="mb-2">
                 <Link
                   to={item.link}
-                  className={`menu-item flex items-center cursor-pointer py-3 px-3 mx-5 transition-colors ${
+                  className={`menu-item flex items-center cursor-pointer py-3 px-3 mx-5 transition-colors
+                    max-md:py-4 max-md:px-4 max-md:mx-3 ${
                     isActive
                       ? "bg-[#013666] text-white rounded-md"
                       : "bg-white rounded-md hover:bg-blue-500/50"

@@ -22,53 +22,58 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
     <>
       <div className="fixed top-0 left-0 w-full h-5 bg-[#FFFEDE] z-50"></div>
       <div
-        className={`fixed top-5 right-0 z-50 h-[84px] flex justify-center items-center px-4 py-4 bg-secondary rounded-lg rounded-t-none shadow-md mx-5 transition-all duration-300 ${
-          sidebarOpen ? "left-[20rem]" : "left-0"
-        }`}
+        className={`fixed top-5 right-0 z-50 h-[84px] flex justify-center items-center px-4 py-4 bg-secondary rounded-lg rounded-t-none shadow-md mx-5 transition-all duration-300
+          max-md:left-2 max-md:right-2 max-md:h-[64px] max-md:px-3 max-md:py-3 max-md:mx-0 max-md:z-40
+          ${sidebarOpen ? "md:left-[20rem]" : "md:left-0"}`}
       >
-        <div className="flex w-full justify-between items-center ml-5">
+        <div className="flex w-full justify-between items-center max-md:ml-0 ml-5">
           {/* Left Section - Menu and Welcome Message */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 max-md:gap-2">
             {/* Menu icon */}
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="flex items-center justify-center"
             >
-              <FaBars className="w-8 h-8 text-primary" strokeWidth={4} />
+              <FaBars
+                className="w-8 h-8 max-md:w-6 max-md:h-6 text-primary"
+                strokeWidth={4}
+              />
             </button>
 
-            {/* Welcome Message (auto hide on small screen) */}
-            <div className="hidden md:flex flex-col min-w-0">
-              <h1 className="text-primary text-2xl font-bold leading-tight mt-6">
+            {/* Welcome Message (auto hide on small screen, show on iPad) */}
+            <div className="md:flex flex-col min-w-0">
+              <h1 className="text-primary text-xl md:text-xl font-bold leading-tight mt-6">
                 Welcome, DS
               </h1>
-              <p className="text-primary text-sm font-semibold -mt-1">
+              <p className="text-primary text-xs md:text-sm font-semibold -mt-1">
                 Have a nice day!
               </p>
             </div>
           </div>
 
           {/* Right Section - icons always visible */}
-          <div className="flex items-center gap-4 pr-2 shrink-0">
+          <div className="flex items-center gap-4 max-md:gap-2 pr-2 shrink-0">
             {/* Chat Icon */}
             <Link to="/dashboard/Settings/chat">
-              <div className="flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary p-2 hover:bg-gray-100">
+              <div className="flex w-[52px] h-[52px] max-md:w-10 max-md:h-10 items-center justify-center rounded-full border border-primary bg-secondary p-2 max-md:p-1 hover:bg-gray-100">
                 <HiOutlineChatAlt
-                  className="w-8 h-8 text-primary"
+                  className="w-8 h-8 max-md:w-6 max-md:h-6 text-primary"
                   strokeWidth={2}
                 />
               </div>
             </Link>
 
             {/* Notification Icon */}
-
             <div
-              className="relative flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary p-2 hover:bg-gray-100 cursor-pointer"
+              className="relative flex w-[52px] h-[52px] max-md:w-10 max-md:h-10 items-center justify-center rounded-full border border-primary bg-secondary p-2 max-md:p-1 hover:bg-gray-100 cursor-pointer"
               onClick={handleNotifOpen}
             >
-              <HiOutlineBell className="w-9 h-9 text-primary" strokeWidth={2} />
+              <HiOutlineBell
+                className="w-9 h-9 max-md:w-6 max-md:h-6 text-primary"
+                strokeWidth={2}
+              />
               {/* Red notification badge */}
-              <div className="absolute top-2 right-2 w-4 h-4 bg-theme-red rounded-full flex items-center justify-center">
+              <div className="absolute top-2 right-2 max-md:top-1 max-md:right-1 w-4 h-4 max-md:w-3 max-md:h-3 bg-theme-red rounded-full flex items-center justify-center">
                 <span className="text-secondary font-montserrat text-xs font-normal">
                   1
                 </span>
@@ -79,11 +84,11 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
               open={isNotifModalOpen}
               onCancel={handleNotifClose}
               footer={null}
-              width={400}
+              width={550}
               bodyStyle={{ padding: 0, borderRadius: 12 }}
               style={{
                 top: 120,
-                right: 35,
+                right: 28,
                 position: "absolute",
               }}
               mask={false}
@@ -130,9 +135,9 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
 
             {/* Profile Icon */}
             <Link to="/dashboard/profile/edit-profile">
-              <div className="flex w-[52px] h-[52px] items-center justify-center rounded-full border border-primary bg-secondary">
+              <div className="flex w-[52px] h-[52px] max-md:w-10 max-md:h-10 items-center justify-center rounded-full border border-primary bg-secondary p-2 max-md:p-1">
                 <HiOutlineUser
-                  className="w-8 h-8 text-primary"
+                  className="w-8 h-8 max-md:w-6 max-md:h-6 text-primary"
                   strokeWidth={2}
                 />
               </div>

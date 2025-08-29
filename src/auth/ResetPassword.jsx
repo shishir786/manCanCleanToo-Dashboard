@@ -18,46 +18,24 @@ const ResetPassword = () => {
     }));
   };
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white p-5">
-      <div className="bg-white  relative rounded-2xl px-5 py-20 w-full max-w-2xl text-center">
-        <div className="flex justify-center ">
-          <img className="w-[208px] h-[120px]" src={LoginLogo} alt="LOgo" />
+    <div className="flex justify-center items-center min-h-screen bg-white p-3 md:p-5">
+      <div className="bg-white relative rounded-2xl px-4 md:px-5 py-8 md:py-12 w-full max-w-lg md:max-w-2xl text-center">
+        <div className="flex justify-center">
+          <img
+            className="w-32 h-20 md:w-[208px] md:h-[120px]"
+            src={LoginLogo}
+            alt="Logo"
+          />
         </div>
-        <h2 className="text-[48px] font-semibold  text-[#001C54]">
+        <h2 className="text-2xl md:text-4xl ipad-landscape:text-[48px] font-semibold text-[#001C54] mt-4">
           Men Can Distribute Too
         </h2>
-        <div className="max-w-xl items-center mx-auto mt-5">
+        <div className="max-w-sm md:max-w-xl items-center mx-auto mt-5">
           <form className="space-y-5">
             <h1 className="text-3xl text-start font-medium text-[#001C54]">
               Set new password
             </h1>
-            <div className="w-full">
-              <label className="text-xl text-gray-800 mb-2 flex justify-start text-start">
-                Current Password
-              </label>
-              <div className="w-full relative">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="**********"
-                  className="w-full px-5 py-3 bg-white text-gray-600 border-2 border-[#001C54] rounded-md outline-none mt-5 placeholder:text-gray-600"
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 bottom-4 flex items-center text-[#001C54]"
-                >
-                  {showPassword ? (
-                    <IoEyeOffOutline className="w-5 h-5 [text-[#FF914C]" />
-                  ) : (
-                    <IoEyeOutline className="w-5 h-5 text-[#001C54]" />
-                  )}
-                </button>
-              </div>
-            </div>
+
             <div className="w-full">
               <label className="text-xl text-gray-800 mb-2 flex justify-start text-start">
                 New Password
@@ -75,10 +53,10 @@ const ResetPassword = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 bottom-4 flex items-center text-[#001C54]"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center text-[#001C54]"
                 >
                   {showPassword ? (
-                    <IoEyeOffOutline className="w-5 h-5 [text-[#FF914C]" />
+                    <IoEyeOffOutline className="w-5 h-5 text-[#FF914C]" />
                   ) : (
                     <IoEyeOutline className="w-5 h-5 text-[#001C54]" />
                   )}
@@ -102,7 +80,7 @@ const ResetPassword = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 bottom-4 flex items-center text-gray-400"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center text-[#001C54]"
                 >
                   {showPassword ? (
                     <IoEyeOffOutline className="w-5 h-5 text-[#001C54]" />
@@ -119,7 +97,7 @@ const ResetPassword = () => {
                   type="submit"
                   className="w-full bg-[#001C54] font-semibold py-3 px-6 rounded-lg shadow-lg cursor-pointer mt-5"
                 >
-                  Sign In
+                  Save Password
                 </button>
               </div>
             </Link>

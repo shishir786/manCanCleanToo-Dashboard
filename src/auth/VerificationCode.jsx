@@ -17,21 +17,25 @@ function VerificationCode() {
     }
   };
 
-  const handleVerifyCode = async () => {
-    navigate("/reset-password");
-  };
+  // const handleVerifyCode = async () => {
+  //   navigate("/dashboard/Setting/reset-password");
+  // };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white p-5">
-      <div className="bg-white relative  rounded-2xl px-10 py-20 w-full max-w-2xl text-center">
-        <div className="flex justify-center ">
-          <img className="w-[208px] h-[120px]" src={LoginLogo} alt="LOgo" />
+    <div className="flex justify-center items-center min-h-screen bg-white p-3 md:p-5">
+      <div className="bg-white relative rounded-2xl px-4 md:px-5 py-8 md:py-12 w-full max-w-lg md:max-w-2xl text-center">
+        <div className="flex justify-center">
+          <img
+            className="w-32 h-20 md:w-[208px] md:h-[120px]"
+            src={LoginLogo}
+            alt="Logo"
+          />
         </div>
-        <h2 className="text-[48px] font-semibold  text-[#001C54]">
+        <h2 className="text-2xl md:text-4xl ipad-landscape:text-[48px] font-semibold text-[#001C54] mt-4">
           Men Can Distribute Too
         </h2>
 
-        <div className="max-w-xl items-center mx-auto mt-5">
+        <div className="max-w-sm md:max-w-xl items-center mx-auto mt-5">
           <form className="space-y-5">
             <div className="text-start">
               <h2 className="font-bold text-2xl text-[#001C54]">Verify OTP</h2>
@@ -56,7 +60,8 @@ function VerificationCode() {
 
             <div className="flex flex-col gap-5 justify-center items-center text-white">
               <button
-                onClick={handleVerifyCode}
+                // onClick={handleVerifyCode}
+                onClick={() => navigate("/resetPassword")}
                 type="button"
                 className="whitespace-nowrap w-full bg-[#001C54] text-white font-semibold py-3 rounded-lg shadow-lg cursor-pointer my-5"
               >

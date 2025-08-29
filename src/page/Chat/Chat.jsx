@@ -198,9 +198,9 @@ const Chat = () => {
         </h1>
       </div>
 
-      {/* Header for Mobile */}
+      {/* Header for Mobile/iPad */}
 
-      <div className="flex items-center justify-between p-4 bg-[#3c3d37] text-white md:hidden shadow-sm">
+      <div className="flex items-center justify-between p-4 bg-[#3c3d37] text-white ipad:hidden shadow-sm">
         <FiMenu
           className="text-2xl cursor-pointer hover:text-yellow-400 transition-colors"
           onClick={() => setShowSidebar(!showSidebar)}
@@ -213,13 +213,13 @@ const Chat = () => {
         {/* Sidebar - User List */}
 
         <div
-          className={`absolute md:relative   top-0 left-0 w-80 md:w-96  bg-white flex flex-col border-r border-gray-200 transition-transform duration-300
+          className={`absolute ipad:relative top-0 left-0 w-80 ipad:w-96 bg-white flex flex-col border-r border-gray-200 transition-transform duration-300 z-30
 
-    ${showSidebar ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}
+    ${showSidebar ? "translate-x-0" : "-translate-x-full ipad:translate-x-0"}`}
         >
           <div className="p-4">
             <button
-              className="md:hidden self-end mb-4 text-gray-500 hover:text-gray-700 float-right"
+              className="ipad:hidden self-end mb-4 text-gray-500 hover:text-gray-700 float-right"
               onClick={() => setShowSidebar(false)}
             >
               ✖
@@ -258,7 +258,7 @@ const Chat = () => {
                 onClick={() => {
                   setSelectedUser(user);
 
-                  if (window.innerWidth < 768) setShowSidebar(false);
+                  if (window.innerWidth < 1024) setShowSidebar(false);
                 }}
               >
                 <div className="relative">

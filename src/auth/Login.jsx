@@ -24,18 +24,18 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white p-5">
-      <div className="bg-white  relative rounded-2xl px-5 py-20 w-full max-w-2xl text-center">
-        <div className="flex justify-center ">
-          <img className="w-[208px] h-[120px]" src={LoginLogo} alt="LOgo" />
+    <div className="flex justify-center items-center min-h-screen bg-white p-3 md:p-5">
+      <div className="bg-white relative rounded-2xl px-4 md:px-5 py-12 md:py-20 w-full max-w-lg md:max-w-2xl text-center">
+        <div className="flex justify-center">
+          <img className="w-32 h-20 md:w-[208px] md:h-[120px]" src={LoginLogo} alt="Logo" />
         </div>
-        <h2 className="text-[48px] font-semibold  text-[#001C54]">
+        <h2 className="text-2xl md:text-4xl ipad-landscape:text-[48px] font-semibold text-[#001C54] mt-4 md:mt-0">
           Men Can Distribute Too
         </h2>
-        <div className="max-w-xl items-center mx-auto mt-5">
-          <form className="space-y-5">
+        <div className="max-w-sm md:max-w-xl items-center mx-auto mt-5">
+          <form className="space-y-4 md:space-y-5">
             <div className="w-full">
-              <label className="text-xl text-gray-800 mb-2 flex justify-start text-start">
+              <label className="text-base md:text-lg ipad-landscape:text-xl text-gray-800 mb-2 flex justify-start text-start">
                 Email
               </label>
               <input
@@ -44,12 +44,12 @@ function Login() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className="w-full px-5 py-3 bg-white text-gray-600 border-2  rounded-lg outline-none mt-5 placeholder:text-gray-600"
+                className="w-full px-4 md:px-5 py-3 md:py-4 bg-white text-gray-600 border-2 rounded-lg outline-none mt-3 md:mt-5 placeholder:text-gray-600 text-sm md:text-base"
                 required
               />
             </div>
             <div className="w-full">
-              <label className="text-xl text-gray-800 mb-2 flex justify-start text-start">
+              <label className="text-base md:text-lg ipad-landscape:text-xl text-gray-800 mb-2 flex justify-start text-start">
                 Password
               </label>
               <div className="w-full relative">
@@ -59,25 +59,25 @@ function Login() {
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="**********"
-                  className="w-full px-5 py-3 bg-white text-gray-600 border-2  rounded-lg outline-none mt-5 placeholder:text-gray-600"
+                  className="w-full px-4 md:px-5 py-3 md:py-4 bg-white text-gray-600 border-2 rounded-lg outline-none mt-3 md:mt-5 placeholder:text-gray-600 text-sm md:text-base"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 bottom-4 flex items-center text-gray-400"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 flex items-center text-gray-400 p-2"
                 >
                   {showPassword ? (
-                    <IoEyeOffOutline className="w-5 h-5 " />
+                    <IoEyeOffOutline className="w-5 h-5" />
                   ) : (
-                    <IoEyeOutline className="w-5 h-5 " />
+                    <IoEyeOutline className="w-5 h-5" />
                   )}
                 </button>
               </div>
             </div>
 
-            <div className="flex justify-between items-center text-sm my-5">
-              <label className="flex items-center gap-[10px] cursor-pointer">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-sm md:text-base my-5 gap-3 md:gap-0">
+              <label className="flex items-center gap-3 cursor-pointer p-2 rounded-md hover:bg-gray-50 transition-colors">
                 <input
                   type="checkbox"
                   className="hidden"
@@ -100,7 +100,7 @@ function Login() {
                         width="21"
                         height="21"
                         rx="4"
-                        className=""
+                        className="fill-[#001C54]"
                         stroke="#001C54"
                       ></rect>
                       <path
@@ -133,21 +133,21 @@ function Login() {
                   </svg>
                 )}
 
-                <span className="text-xl text-gray-600">Remember Password</span>
+                <span className="text-base md:text-lg ipad-landscape:text-xl text-gray-600">Remember Password</span>
               </label>
               <Link
                 to="/forget-password"
-                className="text-[#001C54] text-xl hover:text-[#FF914C]/80"
+                className="text-[#001C54] text-base md:text-lg ipad-landscape:text-xl hover:text-[#FF914C]/80 transition-colors p-2 rounded-md"
               >
                 Forgot Password?
               </Link>
             </div>
 
             <Link to="/">
-              <div className="flex justify-center items-center text-white">
+              <div className="flex justify-center items-center text-white mt-6">
                 <button
                   type="submit"
-                  className="w-full bg-[#001C54] font-semibold py-3 px-6 rounded-lg shadow-lg cursor-pointer mt-5"
+                  className="w-full bg-[#001C54] font-semibold py-3 md:py-4 px-6 rounded-lg shadow-lg cursor-pointer transition-colors hover:bg-[#002a6b] active:bg-[#001a44] text-sm md:text-base ipad-landscape:text-lg"
                 >
                   Sign In
                 </button>

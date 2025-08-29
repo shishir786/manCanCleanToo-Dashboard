@@ -14,6 +14,15 @@ export default {
       fontFamily: {
         'montserrat': ['Montserrat', '-apple-system', 'Roboto', 'Helvetica', 'sans-serif'],
       },
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'ipad': '768px',
+        'ipad-landscape': '1024px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+      },
     },
   },
   plugins: [],
