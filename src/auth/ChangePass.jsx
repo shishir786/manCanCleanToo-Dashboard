@@ -2,7 +2,6 @@ import "antd/dist/reset.css";
 import { useState } from "react";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import PageHeading from "../shared/PageHeading";
 
 const ChangePass = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,8 +18,10 @@ const ChangePass = () => {
   };
   return (
     <div>
-      <div className="rounded-t-lg mt-5 rounded-b-none bg-[#013666] text-white py-3 flex flex-row justify-between items-center mx-5 max-md:mx-3 px-5 max-md:px-3">
-        <PageHeading title="Change Password" />
+      <div className="rounded-t-lg mt-5 rounded-b-none bg-[#0D2357] text-white py-3 flex flex-row justify-between items-center mx-5 max-md:mx-3 px-5 max-md:px-3">
+
+          <h2 className="text-white text-3xl mt-4 font-bold">Change Password</h2>
+
       </div>
       <div className="mx-5 max-md:mx-3 px-5 max-md:px-3 bg-white rounded-b-lg">
         <div className="bg-white relative px-5 max-md:px-3 py-10 max-md:py-6 w-full max-w-2xl mx-auto">
