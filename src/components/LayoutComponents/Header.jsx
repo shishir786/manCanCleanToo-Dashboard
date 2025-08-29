@@ -20,15 +20,21 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full h-5 bg-[#FFFEDE] z-50"></div>
+     <div className="fixed top-0 left-0 w-full h-5 bg-[#FFFEDE] z-50"></div>
 
-      <div
-        className={`fixed top-5 right-0 z-50
-                  h-[84px] flex justify-center items-center
-                  px-4 py-4 bg-secondary rounded-lg rounded-t-none shadow-md mx-5
-                  transition-all duration-300
-                  ${sidebarOpen ? "left-[20rem]" : "left-0"}`}
-      >
+{/* Header */}
+<div
+  className={`fixed top-5 right-0 z-50
+              h-[70px] md:h-[84px] flex justify-center items-center
+              px-3 md:px-4 py-3 md:py-4
+              bg-secondary rounded-lg rounded-t-none shadow-md mx-2 md:mx-5
+              transition-all duration-300
+              ${
+                sidebarOpen
+                  ? "left-0 md:left-[16rem] lg:left-[20rem]" // ✅ shift only on bigger screens
+                  : "left-0"
+              } w-[calc(100%-1rem)] md:w-[calc(100%-2.5rem)]`}
+>
   <div className="flex w-full justify-between items-center ml-5">
           {/* Left Section - Menu and Welcome Message */}
           <div className="flex items-center gap-6">

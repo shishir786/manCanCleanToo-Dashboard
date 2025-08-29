@@ -93,6 +93,10 @@ export const router = createBrowserRouter([
         path: "/dashboard/notification/all-notifications",
         element: <Notification/>,
       },
+      {
+        path: "*",
+        element: <Dashboard/>,
+      },
     ]
   },
   {
